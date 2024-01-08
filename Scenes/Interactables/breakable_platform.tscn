@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://8l55r3cpximf"]
 
 [ext_resource type="Script" path="res://Scripts/breakable_platform.gd" id="1_mar8y"]
-[ext_resource type="Texture2D" uid="uid://l1evosu1twee" path="res://Sprites/Interactables/temporaryPlatform.png" id="1_xq028"]
+[ext_resource type="Texture2D" path="res://Sprites/Interactables/temporaryPlatform.png" id="1_xq028"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1rva5"]
 size = Vector2(14, 14)

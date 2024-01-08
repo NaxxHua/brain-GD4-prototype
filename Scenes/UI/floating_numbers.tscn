@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddjw54lxbm4bn"]
+[gd_scene load_steps=5 format=3 uid="uid://do02uxp53eyva"]
 
 [ext_resource type="Script" path="res://Scripts/floating_numbers.gd" id="1_excom"]
 
