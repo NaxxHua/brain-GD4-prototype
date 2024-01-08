@@ -1,0 +1,203 @@
+[gd_scene load_steps=16 format=3 uid="uid://cap0vxo8dwiai"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_fjj4q"]
+[ext_resource type="Shader" path="res://Shaders/hurt.gdshader" id="2_6se8b"]
+[ext_resource type="Texture2D" uid="uid://dcc3bkuxal6uu" path="res://Sprites/Enemies/Enemy2.png" id="3_nijts"]
+[ext_resource type="Script" path="res://Scripts/PopupLocation.gd" id="4_tdyjr"]
+[ext_resource type="PackedScene" uid="uid://c7i72i4ua6vma" path="res://Scenes/UI/floating_numbers_red.tscn" id="5_m2ghw"]
+[ext_resource type="Texture2D" uid="uid://c5ckrqq7o6rdh" path="res://Sprites/UI/healthbarUnder.png" id="6_gk0ee"]
+[ext_resource type="Texture2D" uid="uid://cx7glsoydaov7" path="res://Sprites/UI/healthbarProgress.png" id="7_b3jt0"]
+[ext_resource type="Script" path="res://Scripts/enemyHealthbar.gd" id="8_132lf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wo8ys"]
+size = Vector2(13, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lmew7"]
+shader = ExtResource("2_6se8b")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 0.0
+
+[sub_resource type="Animation" id="Animation_wmmds"]
+resource_name = "Dead"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11, 12, 13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_exfdy"]
+resource_name = "Idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(13, 7), Vector2(13, 5), Vector2(13, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_vt7ad"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_key3i"]
+_data = {
+"Dead": SubResource("Animation_wmmds"),
+"Idle": SubResource("Animation_exfdy"),
+"RESET": SubResource("Animation_vt7ad")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_33eno"]
+radius = 9.0
+
+[node name="Enemy" type="CharacterBody2D"]
+position = Vector2(263, 96)
+script = ExtResource("1_fjj4q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 12.5)
+shape = SubResource("RectangleShape2D_wo8ys")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_lmew7")
+texture = ExtResource("3_nijts")
+hframes = 7
+vframes = 2
+frame = 1
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_key3i")
+}
+
+[node name="RayCastY" type="RayCast2D" parent="."]
+position = Vector2(7, 16)
+target_position = Vector2(0, 20)
+
+[node name="RayCastX" type="RayCast2D" parent="."]
+position = Vector2(7, 13)
+target_position = Vector2(15, 0)
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, 12)
+shape = SubResource("CircleShape2D_33eno")
+debug_color = Color(0.815686, 0.345098, 0.568627, 0.419608)
+
+[node name="PopupLocation" type="Marker2D" parent="."]
+self_modulate = Color(0.992157, 0.27451, 0.207843, 1)
+position = Vector2(0, -12)
+script = ExtResource("4_tdyjr")
+damage_node = ExtResource("5_m2ghw")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="enemyHealthbar" type="TextureProgressBar" parent="Node2D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -9.0
+offset_right = 15.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("6_gk0ee")
+texture_progress = ExtResource("7_b3jt0")
+script = ExtResource("8_132lf")
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

@@ -1,0 +1,244 @@
+[gd_scene load_steps=16 format=3 uid="uid://b15icagpurrsg"]
+
+[ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_pbv3b"]
+[ext_resource type="Texture2D" uid="uid://cvgavitdlwav" path="res://Sprites/UI/PlayerHead1.png" id="2_acpwd"]
+[ext_resource type="Texture2D" uid="uid://bwvkqwb0couwf" path="res://Sprites/Interactables/coin.png" id="3_yt17i"]
+[ext_resource type="Texture2D" uid="uid://c5ckrqq7o6rdh" path="res://Sprites/UI/healthbarUnder.png" id="5_2r4ht"]
+[ext_resource type="Texture2D" uid="uid://cx7glsoydaov7" path="res://Sprites/UI/healthbarProgress.png" id="6_g350r"]
+[ext_resource type="Script" path="res://Scripts/TextureProgressBar.gd" id="7_dmqtu"]
+[ext_resource type="Texture2D" uid="uid://b88sj0xc4ds7h" path="res://Sprites/UI/CharacterSheetBG.png" id="7_l7cu2"]
+[ext_resource type="Texture2D" uid="uid://b1k7rquomyqjx" path="res://Sprites/UI/characterBG.png" id="8_ardyu"]
+[ext_resource type="Texture2D" uid="uid://0y06it1uy41s" path="res://Sprites/UI/PlayerHeader.png" id="9_466fh"]
+[ext_resource type="Texture2D" uid="uid://ba8dmm5k2fypw" path="res://Sprites/UI/ButtonBlue.png" id="10_5p8uu"]
+[ext_resource type="Theme" uid="uid://cp1yt30lt5sbr" path="res://Theme/BrainInAVat.tres" id="10_qmpho"]
+[ext_resource type="Texture2D" uid="uid://bd48l808iflpl" path="res://Sprites/UI/ButtonBluePressed.png" id="11_hath2"]
+
+[sub_resource type="Animation" id="Animation_m6sfx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_gd12n"]
+resource_name = "coin"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 2, 3, 4, 5, 6, 7, 7, 7, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbaw8"]
+_data = {
+"RESET": SubResource("Animation_m6sfx"),
+"coin": SubResource("Animation_gd12n")
+}
+
+[node name="GUI" type="CanvasLayer"]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+script = ExtResource("1_pbv3b")
+
+[node name="PlayerLife" type="Sprite2D" parent="."]
+position = Vector2(24.5, 15.5)
+texture = ExtResource("2_acpwd")
+
+[node name="coinLogo" type="Sprite2D" parent="."]
+position = Vector2(47.0037, 47.5)
+rotation = -0.000618508
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_yt17i")
+hframes = 8
+frame = 1
+
+[node name="anim" type="AnimationPlayer" parent="coinLogo"]
+autoplay = "coin"
+libraries = {
+"": SubResource("AnimationLibrary_mbaw8")
+}
+
+[node name="coinText" type="Label" parent="."]
+offset_left = 56.5037
+offset_top = 34.0
+offset_right = 94.5037
+offset_bottom = 60.0
+text = "1"
+vertical_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 42.5
+offset_top = 13.0
+offset_right = 114.5
+offset_bottom = 26.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("5_2r4ht")
+texture_progress = ExtResource("6_g350r")
+script = ExtResource("7_dmqtu")
+
+[node name="CharacterSheet" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 576.0
+offset_bottom = 324.0
+
+[node name="Background" type="NinePatchRect" parent="CharacterSheet"]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 324.0
+texture = ExtResource("7_l7cu2")
+region_rect = Rect2(0, 0, 160, 128)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterSheet"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 26.0
+offset_right = 547.0
+offset_bottom = 297.0
+
+[node name="CharacterBG" type="NinePatchRect" parent="CharacterSheet/HBoxContainer"]
+custom_minimum_size = Vector2(160, 271)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("8_ardyu")
+
+[node name="CharacterTexture" type="TextureRect" parent="CharacterSheet/HBoxContainer/CharacterBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -17.0
+offset_right = 31.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_466fh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterSheet/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MainStats" type="VBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="StatBG" type="TextureRect" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_right = 200.0
+offset_bottom = 15.0
+grow_vertical = 2
+
+[node name="DerivedStats" type="ScrollContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/DerivedStats"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buttons" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Stats" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+texture_normal = ExtResource("10_5p8uu")
+texture_pressed = ExtResource("11_hath2")
+
+[node name="Label" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Buttons/Stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_qmpho")
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "属性"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Skills" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+texture_normal = ExtResource("10_5p8uu")
+texture_pressed = ExtResource("11_hath2")
+
+[node name="Label" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Buttons/Skills"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_qmpho")
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "技能
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Equipment" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+texture_normal = ExtResource("10_5p8uu")
+texture_pressed = ExtResource("11_hath2")
+
+[node name="Label" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Buttons/Equipment"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_qmpho")
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "装备
+"
+horizontal_alignment = 1
+vertical_alignment = 1

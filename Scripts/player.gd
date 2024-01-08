@@ -1,0 +1,143 @@
+extends CharacterBody2D
+
+class_name Player
+
+signal healthChanged
+
+enum PlayerStates {
+	MOVE,
+	HURT,
+	SWORD,
+	DEAD
+}
+var currentState = PlayerStates.MOVE
+
+var speed = 200.0
+var gravity = 20
+var jump = 400
+var pressed = 2
+@export var dps = 10
+@export var maxHealth = Globals.playerMaxHealth
+@onready var currentHealth: int = maxHealth
+
+# 属性系统
+var strength = 10
+var agility = 10
+var intelligence = 10
+var stamina = 10
+
+func _ready():
+	randomize() # 初始化随机数生成器
+	$Sword/CollisionShape2D.disabled = true
+
+
+# 计算实际的伤害值
+func calculate_damage() -> int:
+	var variance = 5 # 你可以调整这个值以增大或减小随机波动的范围
+	var random_factor = randf_range(-variance, variance) # 随机波动值
+	return max(1, dps + int(random_factor)) # 确保伤害值至少为1
+
+func _physics_process(delta):
+#	Move(delta)
+	
+	match currentState:
+		PlayerStates.MOVE:
+			Move(delta)
+		PlayerStates.SWORD:
+			Sword()
+		PlayerStates.DEAD:
+			Dead()
+	
+	velocity.y += 20
+	move_and_slide()
+
+func Move(delta):
+	var movement = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	if movement != 0:
+		if movement > 0.0:
+			velocity.x += speed * delta
+			velocity.x = clamp(speed, 100, speed)
+			$Sprite2D.flip_h = false
+			$anim.play("Walk")
+			$Sword/CollisionShape2D.position = Vector2(24,0)
+		
+		if movement < 0.0:
+			velocity.x -= speed * delta
+			velocity.x = clamp(speed, -100, -speed)
+			$Sprite2D.flip_h = true
+			$anim.play("Walk")
+			$Sword/CollisionShape2D.position = Vector2(-24,0)
+	
+	if movement == 0.0:
+		velocity.x = 0.0
+		$anim.play("Idle")
+	
+	if Input.is_action_just_pressed("ui_jump"):
+		pressed -= 1
+	
+	if is_on_floor() && Input.is_action_just_pressed("ui_jump"):
+		Jump()
+		
+	if !is_on_floor() && Input.is_action_just_pressed("ui_jump") && pressed >= 1:
+		Jump()
+	
+	if pressed <= 0:
+		velocity.y = velocity.y
+		
+	if is_on_floor():
+		pressed = 2
+		
+	if !is_on_floor():
+		$anim.play("Jump")
+	
+	if !is_on_floor() && velocity.y > 10:
+		$anim.play("Fall")
+	
+	if Input.is_action_just_pressed("ui_sword"):
+		currentState = PlayerStates.SWORD
+		velocity.x = movement
+
+func Jump():
+	$anim.play("Jump")
+	velocity.y -= jump
+	
+func Sword():
+	$anim.play("Sword")
+	
+func Dead():
+	$anim.play("Dead")
+	await $anim.animation_finished
+	get_tree().reload_current_scene()
+	currentHealth = Globals.playerMaxHealth
+	OnStateFinished()
+	
+func OnStateFinished():
+	currentState = PlayerStates.MOVE
+
+func flash():
+	$Sprite2D.material.set_shader_parameter("flash_modifier", 1)
+	await (get_tree().create_timer(0.3)).timeout
+	$Sprite2D.material.set_shader_parameter("flash_modifier", 0)
+
+func _on_hitbox_body_entered(body):
+	if body.name == "Enemy":
+		var enemy = get_node("/root/MainScene/Enemy")
+		flash()
+		take_damage(enemy.calculate_damage())
+		healthChanged.emit()
+		
+	if currentHealth <= 0:
+		currentState = PlayerStates.DEAD
+
+func _on_hitbox_area_entered(area):
+	if area.name == "Sword":
+		var player = get_node("/root/MainScene/Player")
+		flash()
+		take_damage(player.calculate_damage())
+		healthChanged.emit()
+
+func take_damage(damage_amount: int):
+	currentHealth -= damage_amount
+	var popup_location = get_node("PopupLocation")
+	if popup_location:
+		popup_location.popup(damage_amount)

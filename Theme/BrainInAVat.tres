@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cp1yt30lt5sbr"]
+
+[ext_resource type="FontFile" uid="uid://d07co36a0kpv8" path="res://Sprites/ark-pixel-12px-proportional-zh_cn.ttf" id="1_8nbfs"]
+
+[resource]
+default_base_scale = 1.0
+default_font = ExtResource("1_8nbfs")
+default_font_size = 18
