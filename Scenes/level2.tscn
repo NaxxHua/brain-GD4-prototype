@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c1p6nlktk1u5d" path="res://Scenes/UI/GUI.tscn" id="14_a6lc8"]
 [ext_resource type="PackedScene" uid="uid://bmyo7dheg2o4n" path="res://Scenes/Interactables/coin.tscn" id="15_vi6sj"]
 [ext_resource type="PackedScene" uid="uid://c57idbwpnbuut" path="res://Scenes/Interactables/door.tscn" id="16_g3tk1"]
-[ext_resource type="PackedScene" path="res://Scenes/Enemies/enemy.tscn" id="17_gbcoy"]
+[ext_resource type="PackedScene" uid="uid://cnrheespc4bh2" path="res://Scenes/Enemies/enemy.tscn" id="17_gbcoy"]
 [ext_resource type="PackedScene" uid="uid://tbwd1hlu3o6o" path="res://Scenes/Interactables/switch.tscn" id="18_tq0ga"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gkt04"]

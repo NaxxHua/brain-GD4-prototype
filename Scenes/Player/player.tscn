@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_i4g3n"]
 [ext_resource type="Shader" path="res://Shaders/hurt.gdshader" id="2_w0awl"]
 [ext_resource type="Script" path="res://Scripts/PopupLocation.gd" id="4_tlfxt"]
-[ext_resource type="PackedScene" path="res://Scenes/UI/floating_numbers_purple.tscn" id="5_h2hkn"]
+[ext_resource type="PackedScene" uid="uid://dwvlf7doo7xal" path="res://Scenes/UI/floating_numbers_purple.tscn" id="5_h2hkn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qtbc5"]
 shader = ExtResource("2_w0awl")
