@@ -1,0 +1,553 @@
+[gd_scene load_steps=17 format=3 uid="uid://dy4wrews2paxv"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterSheet.gd" id="1_oa5bt"]
+[ext_resource type="Texture2D" uid="uid://b88sj0xc4ds7h" path="res://Sprites/UI/CharacterSheetBG.png" id="2_8u0p2"]
+[ext_resource type="Texture2D" uid="uid://b1k7rquomyqjx" path="res://Sprites/UI/characterBG.png" id="3_cthvy"]
+[ext_resource type="Texture2D" uid="uid://0y06it1uy41s" path="res://Sprites/UI/PlayerHeader.png" id="4_rm6xp"]
+[ext_resource type="Texture2D" uid="uid://bhmb45gvadfok" path="res://Sprites/UI/StatSlot.png" id="5_d3sli"]
+[ext_resource type="Texture2D" uid="uid://b00pwbvfu7cum" path="res://Sprites/UI/JiahuaButtonDownNormal.png" id="6_qy1wm"]
+[ext_resource type="Texture2D" uid="uid://cb6431mbrtb0e" path="res://Sprites/UI/JiahuaButtonDownPressed.png" id="7_b3njo"]
+[ext_resource type="Texture2D" uid="uid://csdmwcv5rcsi" path="res://Sprites/UI/JiahuaButtonDownDisabled.png" id="8_hgy03"]
+[ext_resource type="Texture2D" uid="uid://bexgf88usa2mc" path="res://Sprites/UI/JiahuaButtonUpNormal.png" id="9_ipq4n"]
+[ext_resource type="Texture2D" uid="uid://6tuqdcu4ygu1" path="res://Sprites/UI/JiahuaButtonUpPressed.png" id="10_chh37"]
+[ext_resource type="Texture2D" uid="uid://wg0l0gprfdpj" path="res://Sprites/UI/JiahuaButtonUpDisbaled.png" id="11_susd4"]
+[ext_resource type="Theme" uid="uid://cp1yt30lt5sbr" path="res://Theme/BrainInAVat.tres" id="12_gkmn7"]
+[ext_resource type="Texture2D" uid="uid://80em8bue0taf" path="res://Sprites/UI/ButtonYellow.png" id="13_jawwg"]
+[ext_resource type="Texture2D" uid="uid://bkmd8ex6qp5rh" path="res://Sprites/UI/ButtonYellowPressed.png" id="14_xuc43"]
+[ext_resource type="Texture2D" uid="uid://ba8dmm5k2fypw" path="res://Sprites/UI/ButtonBlue.png" id="15_updkv"]
+[ext_resource type="Texture2D" uid="uid://bd48l808iflpl" path="res://Sprites/UI/ButtonBluePressed.png" id="16_e48os"]
+
+[node name="CharacterSheet" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 576.0
+offset_bottom = 324.0
+script = ExtResource("1_oa5bt")
+
+[node name="Background" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 576.0
+offset_bottom = 324.0
+texture = ExtResource("2_8u0p2")
+region_rect = Rect2(0, 0, 160, 128)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 26.0
+offset_right = 547.0
+offset_bottom = 297.0
+
+[node name="CharacterBG" type="NinePatchRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(160, 271)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("3_cthvy")
+
+[node name="CharacterTexture" type="TextureRect" parent="HBoxContainer/CharacterBG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -17.0
+offset_right = 31.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rm6xp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Stats" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MainStats" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Stats"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Str" type="Control" parent="HBoxContainer/VBoxContainer/Stats/MainStats"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="StatBG" type="TextureRect" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Str"]
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 30.0
+texture = ExtResource("5_d3sli")
+
+[node name="Min" type="TextureButton" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Str/StatBG" groups=["MinusButtons"]]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_right = 26.0
+offset_bottom = 18.0
+grow_vertical = 2
+scale = Vector2(0.687, 0.687)
+disabled = true
+texture_normal = ExtResource("6_qy1wm")
+texture_pressed = ExtResource("7_b3njo")
+texture_disabled = ExtResource("8_hgy03")
+stretch_mode = 0
+
+[node name="Plus" type="TextureButton" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Str/StatBG" groups=["PlusButtons"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -15.0
+offset_right = 37.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.687, 0.687)
+disabled = true
+texture_normal = ExtResource("9_ipq4n")
+texture_pressed = ExtResource("10_chh37")
+texture_disabled = ExtResource("11_susd4")
+stretch_mode = 0
+
+[node name="Stats" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Str/StatBG"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -15.0
+offset_right = 50.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Str/StatBG/Stats"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "力量"
+
+[node name="Change" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Str/StatBG/Stats" groups=["ChangeLabels"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+
+[node name="Value" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Str/StatBG/Stats"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "11"
+
+[node name="Dex" type="Control" parent="HBoxContainer/VBoxContainer/Stats/MainStats"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="StatBG" type="TextureRect" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Dex"]
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 30.0
+texture = ExtResource("5_d3sli")
+
+[node name="Min" type="TextureButton" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Dex/StatBG" groups=["MinusButtons"]]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_right = 26.0
+offset_bottom = 18.0
+grow_vertical = 2
+scale = Vector2(0.687, 0.687)
+disabled = true
+texture_normal = ExtResource("6_qy1wm")
+texture_pressed = ExtResource("7_b3njo")
+texture_disabled = ExtResource("8_hgy03")
+stretch_mode = 0
+
+[node name="Plus" type="TextureButton" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Dex/StatBG" groups=["PlusButtons"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -15.0
+offset_right = 37.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.687, 0.687)
+disabled = true
+texture_normal = ExtResource("9_ipq4n")
+texture_pressed = ExtResource("10_chh37")
+texture_disabled = ExtResource("11_susd4")
+stretch_mode = 0
+
+[node name="Stats" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Dex/StatBG"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -15.0
+offset_right = 50.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Dex/StatBG/Stats"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "敏捷"
+
+[node name="Change" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Dex/StatBG/Stats" groups=["ChangeLabels"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+
+[node name="Value" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Dex/StatBG/Stats"]
+layout_mode = 2
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "14"
+
+[node name="Int" type="Control" parent="HBoxContainer/VBoxContainer/Stats/MainStats"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="StatBG" type="TextureRect" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Int"]
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 30.0
+texture = ExtResource("5_d3sli")
+
+[node name="Min" type="TextureButton" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Int/StatBG" groups=["MinusButtons"]]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_right = 26.0
+offset_bottom = 18.0
+grow_vertical = 2
+scale = Vector2(0.687, 0.687)
+disabled = true
+texture_normal = ExtResource("6_qy1wm")
+texture_pressed = ExtResource("7_b3njo")
+texture_disabled = ExtResource("8_hgy03")
+stretch_mode = 0
+
+[node name="Plus" type="TextureButton" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Int/StatBG" groups=["PlusButtons"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -15.0
+offset_right = 37.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.687, 0.687)
+disabled = true
+texture_normal = ExtResource("9_ipq4n")
+texture_pressed = ExtResource("10_chh37")
+texture_disabled = ExtResource("11_susd4")
+stretch_mode = 0
+
+[node name="Stats" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Int/StatBG"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -15.0
+offset_right = 50.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Int/StatBG/Stats"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "智力"
+
+[node name="Change" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Int/StatBG/Stats" groups=["ChangeLabels"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+
+[node name="Value" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Int/StatBG/Stats"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "10"
+
+[node name="Sta" type="Control" parent="HBoxContainer/VBoxContainer/Stats/MainStats"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="StatBG" type="TextureRect" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Sta"]
+layout_mode = 1
+offset_right = 150.0
+offset_bottom = 30.0
+texture = ExtResource("5_d3sli")
+
+[node name="Min" type="TextureButton" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Sta/StatBG" groups=["MinusButtons"]]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_right = 26.0
+offset_bottom = 18.0
+grow_vertical = 2
+scale = Vector2(0.687, 0.687)
+disabled = true
+texture_normal = ExtResource("6_qy1wm")
+texture_pressed = ExtResource("7_b3njo")
+texture_disabled = ExtResource("8_hgy03")
+stretch_mode = 0
+
+[node name="Plus" type="TextureButton" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Sta/StatBG" groups=["PlusButtons"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -15.0
+offset_right = 37.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.687, 0.687)
+disabled = true
+texture_normal = ExtResource("9_ipq4n")
+texture_pressed = ExtResource("10_chh37")
+texture_disabled = ExtResource("11_susd4")
+stretch_mode = 0
+
+[node name="Stats" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Sta/StatBG"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -15.0
+offset_right = 50.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Sta/StatBG/Stats"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "耐力"
+
+[node name="Change" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Sta/StatBG/Stats" groups=["ChangeLabels"]]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+
+[node name="Value" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/Sta/StatBG/Stats"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "10"
+
+[node name="StatPoints" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Stats/MainStats"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/StatPoints"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("12_gkmn7")
+
+[node name="Confirm" type="TextureButton" parent="HBoxContainer/VBoxContainer/Stats/MainStats/StatPoints"]
+layout_mode = 2
+texture_normal = ExtResource("13_jawwg")
+texture_pressed = ExtResource("14_xuc43")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Stats/MainStats/StatPoints/Confirm"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -15.0
+offset_right = 18.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_gkmn7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "确认"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DerivedStats" type="ScrollContainer" parent="HBoxContainer/VBoxContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Stats/DerivedStats"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Damage" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/Damage"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("12_gkmn7")
+text = "物理伤害"
+
+[node name="Value" type="Label" parent="HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/Damage"]
+layout_mode = 2
+theme = ExtResource("12_gkmn7")
+text = "100
+"
+
+[node name="HP" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/HP"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("12_gkmn7")
+text = "魔法伤害"
+
+[node name="Value" type="Label" parent="HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/HP"]
+layout_mode = 2
+theme = ExtResource("12_gkmn7")
+text = "100"
+
+[node name="Resource" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Text" type="Label" parent="HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/Resource"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("12_gkmn7")
+text = "能量恢复速度"
+
+[node name="Value" type="Label" parent="HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/Resource"]
+layout_mode = 2
+theme = ExtResource("12_gkmn7")
+text = "150"
+
+[node name="Buttons" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Stats" type="TextureButton" parent="HBoxContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+texture_normal = ExtResource("15_updkv")
+texture_pressed = ExtResource("16_e48os")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Buttons/Stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_gkmn7")
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "属性"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Skills" type="TextureButton" parent="HBoxContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+texture_normal = ExtResource("15_updkv")
+texture_pressed = ExtResource("16_e48os")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Buttons/Skills"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_gkmn7")
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "技能
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Equipment" type="TextureButton" parent="HBoxContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(110, 30)
+layout_mode = 2
+texture_normal = ExtResource("15_updkv")
+texture_pressed = ExtResource("16_e48os")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Buttons/Equipment"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_gkmn7")
+theme_type_variation = &"HeaderMedium"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "装备
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Stats/MainStats/StatPoints/Confirm" to="." method="_on_confirm_pressed"]

@@ -21,8 +21,10 @@ var pressed = 2
 @onready var currentHealth: int = maxHealth
 
 # 属性系统
+var level = 1
+var stat_points = 5
 var strength = 10
-var agility = 10
+var dexterity = 10
 var intelligence = 10
 var stamina = 10
 
@@ -30,6 +32,9 @@ func _ready():
 	randomize() # 初始化随机数生成器
 	$Sword/CollisionShape2D.disabled = true
 
+func LevelUp():
+	level += 1
+	stat_points += 5
 
 # 计算实际的伤害值
 func calculate_damage() -> int:
