@@ -1,19 +1,20 @@
-[gd_scene load_steps=25 format=3 uid="uid://c1p6nlktk1u5d"]
+[gd_scene load_steps=26 format=3 uid="uid://c1p6nlktk1u5d"]
 
 [ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_pbv3b"]
-[ext_resource type="Texture2D" path="res://Sprites/UI/PlayerHead1.png" id="2_acpwd"]
-[ext_resource type="Texture2D" path="res://Sprites/Interactables/coin.png" id="3_yt17i"]
-[ext_resource type="Texture2D" path="res://Sprites/UI/healthbarUnder.png" id="5_2r4ht"]
-[ext_resource type="Texture2D" path="res://Sprites/UI/healthbarProgress.png" id="6_g350r"]
+[ext_resource type="Texture2D" uid="uid://cvgavitdlwav" path="res://Sprites/UI/PlayerHead1.png" id="2_acpwd"]
+[ext_resource type="Texture2D" uid="uid://bwvkqwb0couwf" path="res://Sprites/Interactables/coin.png" id="3_yt17i"]
+[ext_resource type="Texture2D" uid="uid://c5ckrqq7o6rdh" path="res://Sprites/UI/healthbarUnder.png" id="5_2r4ht"]
+[ext_resource type="Texture2D" uid="uid://cx7glsoydaov7" path="res://Sprites/UI/healthbarProgress.png" id="6_g350r"]
 [ext_resource type="Script" path="res://Scripts/TextureProgressBar.gd" id="7_dmqtu"]
-[ext_resource type="Texture2D" path="res://Sprites/UI/CharacterSheetBG.png" id="7_l7cu2"]
-[ext_resource type="Texture2D" path="res://Sprites/UI/characterBG.png" id="8_ardyu"]
-[ext_resource type="Texture2D" path="res://Sprites/UI/PlayerHeader.png" id="9_466fh"]
-[ext_resource type="Texture2D" path="res://Sprites/UI/ButtonBlue.png" id="10_5p8uu"]
+[ext_resource type="Script" path="res://Scripts/CharacterSheet.gd" id="7_h8wby"]
+[ext_resource type="Texture2D" uid="uid://b88sj0xc4ds7h" path="res://Sprites/UI/CharacterSheetBG.png" id="7_l7cu2"]
+[ext_resource type="Texture2D" uid="uid://b1k7rquomyqjx" path="res://Sprites/UI/characterBG.png" id="8_ardyu"]
+[ext_resource type="Texture2D" uid="uid://0y06it1uy41s" path="res://Sprites/UI/PlayerHeader.png" id="9_466fh"]
+[ext_resource type="Texture2D" uid="uid://ba8dmm5k2fypw" path="res://Sprites/UI/ButtonBlue.png" id="10_5p8uu"]
 [ext_resource type="Texture2D" uid="uid://bhmb45gvadfok" path="res://Sprites/UI/StatSlot.png" id="10_bpaf0"]
 [ext_resource type="Theme" uid="uid://cp1yt30lt5sbr" path="res://Theme/BrainInAVat.tres" id="10_qmpho"]
 [ext_resource type="Texture2D" uid="uid://bexgf88usa2mc" path="res://Sprites/UI/JiahuaButtonUpNormal.png" id="11_2reso"]
-[ext_resource type="Texture2D" path="res://Sprites/UI/ButtonBluePressed.png" id="11_hath2"]
+[ext_resource type="Texture2D" uid="uid://bd48l808iflpl" path="res://Sprites/UI/ButtonBluePressed.png" id="11_hath2"]
 [ext_resource type="Texture2D" uid="uid://b00pwbvfu7cum" path="res://Sprites/UI/JiahuaButtonDownNormal.png" id="11_jhn23"]
 [ext_resource type="Texture2D" uid="uid://6tuqdcu4ygu1" path="res://Sprites/UI/JiahuaButtonUpPressed.png" id="12_f5jtb"]
 [ext_resource type="Texture2D" uid="uid://cb6431mbrtb0e" path="res://Sprites/UI/JiahuaButtonDownPressed.png" id="12_kt5tq"]
@@ -110,6 +111,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 576.0
 offset_bottom = 324.0
+script = ExtResource("7_h8wby")
 
 [node name="Background" type="NinePatchRect" parent="CharacterSheet"]
 layout_mode = 0
@@ -155,26 +157,26 @@ texture = ExtResource("9_466fh")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer"]
+[node name="Stats" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MainStats" type="VBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="MainStats" type="VBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="Str" type="Control" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats"]
+[node name="Str" type="Control" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="StatBG" type="TextureRect" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Str"]
+[node name="StatBG" type="TextureRect" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Str"]
 layout_mode = 1
 offset_right = 150.0
 offset_bottom = 30.0
 texture = ExtResource("10_bpaf0")
 
-[node name="Min" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Str/StatBG"]
+[node name="Min" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Str/StatBG" groups=["MinusButtons"]]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -183,12 +185,13 @@ offset_right = 26.0
 offset_bottom = 18.0
 grow_vertical = 2
 scale = Vector2(0.687, 0.687)
+disabled = true
 texture_normal = ExtResource("11_jhn23")
 texture_pressed = ExtResource("12_kt5tq")
 texture_disabled = ExtResource("13_ovkno")
 stretch_mode = 0
 
-[node name="Plus" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Str/StatBG"]
+[node name="Plus" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Str/StatBG" groups=["PlusButtons"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -202,12 +205,13 @@ offset_bottom = 33.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.687, 0.687)
+disabled = true
 texture_normal = ExtResource("11_2reso")
 texture_pressed = ExtResource("12_f5jtb")
 texture_disabled = ExtResource("13_4gr6a")
 stretch_mode = 0
 
-[node name="Stats" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Str/StatBG"]
+[node name="Stats" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Str/StatBG"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -222,37 +226,36 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Str/StatBG/Stats"]
+[node name="Name" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Str/StatBG/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_qmpho")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "力量"
 
-[node name="Change" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Str/StatBG/Stats"]
+[node name="Change" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Str/StatBG/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_qmpho")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-text = "+1"
 
-[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Str/StatBG/Stats"]
+[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Str/StatBG/Stats"]
 layout_mode = 2
 theme = ExtResource("10_qmpho")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "11"
 
-[node name="Dex" type="Control" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats"]
+[node name="Dex" type="Control" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="StatBG" type="TextureRect" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Dex"]
+[node name="StatBG" type="TextureRect" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Dex"]
 layout_mode = 1
 offset_right = 150.0
 offset_bottom = 30.0
 texture = ExtResource("10_bpaf0")
 
-[node name="Min" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Dex/StatBG"]
+[node name="Min" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Dex/StatBG" groups=["MinusButtons"]]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -261,12 +264,13 @@ offset_right = 26.0
 offset_bottom = 18.0
 grow_vertical = 2
 scale = Vector2(0.687, 0.687)
+disabled = true
 texture_normal = ExtResource("11_jhn23")
 texture_pressed = ExtResource("12_kt5tq")
 texture_disabled = ExtResource("13_ovkno")
 stretch_mode = 0
 
-[node name="Plus" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Dex/StatBG"]
+[node name="Plus" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Dex/StatBG" groups=["PlusButtons"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -280,12 +284,13 @@ offset_bottom = 33.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.687, 0.687)
+disabled = true
 texture_normal = ExtResource("11_2reso")
 texture_pressed = ExtResource("12_f5jtb")
 texture_disabled = ExtResource("13_4gr6a")
 stretch_mode = 0
 
-[node name="Stats" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Dex/StatBG"]
+[node name="Stats" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Dex/StatBG"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -300,37 +305,36 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Dex/StatBG/Stats"]
+[node name="Name" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Dex/StatBG/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_qmpho")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "敏捷"
 
-[node name="Change" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Dex/StatBG/Stats"]
+[node name="Change" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Dex/StatBG/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_qmpho")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
-text = "+3"
 
-[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Dex/StatBG/Stats"]
+[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Dex/StatBG/Stats"]
 layout_mode = 2
 theme = ExtResource("10_qmpho")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "14"
 
-[node name="Int" type="Control" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats"]
+[node name="Int" type="Control" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="StatBG" type="TextureRect" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Int"]
+[node name="StatBG" type="TextureRect" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Int"]
 layout_mode = 1
 offset_right = 150.0
 offset_bottom = 30.0
 texture = ExtResource("10_bpaf0")
 
-[node name="Min" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Int/StatBG"]
+[node name="Min" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Int/StatBG" groups=["MinusButtons"]]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -339,12 +343,13 @@ offset_right = 26.0
 offset_bottom = 18.0
 grow_vertical = 2
 scale = Vector2(0.687, 0.687)
+disabled = true
 texture_normal = ExtResource("11_jhn23")
 texture_pressed = ExtResource("12_kt5tq")
 texture_disabled = ExtResource("13_ovkno")
 stretch_mode = 0
 
-[node name="Plus" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Int/StatBG"]
+[node name="Plus" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Int/StatBG" groups=["PlusButtons"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -358,12 +363,13 @@ offset_bottom = 33.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.687, 0.687)
+disabled = true
 texture_normal = ExtResource("11_2reso")
 texture_pressed = ExtResource("12_f5jtb")
 texture_disabled = ExtResource("13_4gr6a")
 stretch_mode = 0
 
-[node name="Stats" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Int/StatBG"]
+[node name="Stats" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Int/StatBG"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -378,36 +384,36 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Int/StatBG/Stats"]
+[node name="Name" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Int/StatBG/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_qmpho")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "智力"
 
-[node name="Change" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Int/StatBG/Stats"]
+[node name="Change" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Int/StatBG/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_qmpho")
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 
-[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Int/StatBG/Stats"]
+[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Int/StatBG/Stats"]
 layout_mode = 2
 theme = ExtResource("10_qmpho")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "5"
 
-[node name="Sta" type="Control" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats"]
+[node name="Sta" type="Control" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="StatBG" type="TextureRect" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Sta"]
+[node name="StatBG" type="TextureRect" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Sta"]
 layout_mode = 1
 offset_right = 150.0
 offset_bottom = 30.0
 texture = ExtResource("10_bpaf0")
 
-[node name="Min" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Sta/StatBG"]
+[node name="Min" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Sta/StatBG" groups=["MinusButtons"]]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -416,12 +422,13 @@ offset_right = 26.0
 offset_bottom = 18.0
 grow_vertical = 2
 scale = Vector2(0.687, 0.687)
+disabled = true
 texture_normal = ExtResource("11_jhn23")
 texture_pressed = ExtResource("12_kt5tq")
 texture_disabled = ExtResource("13_ovkno")
 stretch_mode = 0
 
-[node name="Plus" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Sta/StatBG"]
+[node name="Plus" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Sta/StatBG" groups=["PlusButtons"]]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -435,12 +442,13 @@ offset_bottom = 33.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.687, 0.687)
+disabled = true
 texture_normal = ExtResource("11_2reso")
 texture_pressed = ExtResource("12_f5jtb")
 texture_disabled = ExtResource("13_4gr6a")
 stretch_mode = 0
 
-[node name="Stats" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Sta/StatBG"]
+[node name="Stats" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Sta/StatBG"]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -455,14 +463,14 @@ offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Sta/StatBG/Stats"]
+[node name="Name" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Sta/StatBG/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_qmpho")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "耐力"
 
-[node name="Change" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Sta/StatBG/Stats"]
+[node name="Change" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Sta/StatBG/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_qmpho")
@@ -470,30 +478,30 @@ theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "
 "
 
-[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/Sta/StatBG/Stats"]
+[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/Sta/StatBG/Stats"]
 layout_mode = 2
 theme = ExtResource("10_qmpho")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "7"
 visible_characters = 0
-visible_ratio = -0.5
+visible_ratio = 0.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats"]
+[node name="StatPoints" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/HBoxContainer"]
+[node name="Label" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/StatPoints"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_qmpho")
 text = "Points 7"
 
-[node name="Confirm" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/HBoxContainer"]
+[node name="Confirm" type="TextureButton" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/StatPoints"]
 layout_mode = 2
 texture_normal = ExtResource("18_fjqpl")
 texture_pressed = ExtResource("19_1a4cm")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/MainStats/HBoxContainer/Confirm"]
+[node name="Label" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/MainStats/StatPoints/Confirm"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -512,57 +520,57 @@ text = "确认"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DerivedStats" type="ScrollContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="DerivedStats" type="ScrollContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/DerivedStats"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/DerivedStats"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Damage" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/DerivedStats/VBoxContainer"]
+[node name="Damage" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Text" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/DerivedStats/VBoxContainer/Damage"]
+[node name="Text" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/Damage"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_qmpho")
 text = "物理伤害"
 
-[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/DerivedStats/VBoxContainer/Damage"]
+[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/Damage"]
 layout_mode = 2
 theme = ExtResource("10_qmpho")
 text = "100
 "
 
-[node name="HP" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/DerivedStats/VBoxContainer"]
+[node name="HP" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Text" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/DerivedStats/VBoxContainer/HP"]
+[node name="Text" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/HP"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_qmpho")
 text = "魔法伤害"
 
-[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/DerivedStats/VBoxContainer/HP"]
+[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/HP"]
 layout_mode = 2
 theme = ExtResource("10_qmpho")
 text = "100"
 
-[node name="Resource" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/DerivedStats/VBoxContainer"]
+[node name="Resource" type="HBoxContainer" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Text" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/DerivedStats/VBoxContainer/Resource"]
+[node name="Text" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/Resource"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("10_qmpho")
 text = "能量恢复速度"
 
-[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/HBoxContainer/DerivedStats/VBoxContainer/Resource"]
+[node name="Value" type="Label" parent="CharacterSheet/HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/Resource"]
 layout_mode = 2
 theme = ExtResource("10_qmpho")
 text = "150"

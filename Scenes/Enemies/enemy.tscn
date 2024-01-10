@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_fjj4q"]
 [ext_resource type="Shader" path="res://Shaders/hurt.gdshader" id="2_6se8b"]
-[ext_resource type="Texture2D" path="res://Sprites/Enemies/Enemy2.png" id="3_nijts"]
+[ext_resource type="Texture2D" uid="uid://dcc3bkuxal6uu" path="res://Sprites/Enemies/Enemy2.png" id="3_nijts"]
 [ext_resource type="Script" path="res://Scripts/PopupLocation.gd" id="4_tdyjr"]
 [ext_resource type="PackedScene" uid="uid://dv1lnythgejja" path="res://Scenes/UI/floating_numbers_red.tscn" id="5_m2ghw"]
-[ext_resource type="Texture2D" path="res://Sprites/UI/healthbarUnder.png" id="6_gk0ee"]
-[ext_resource type="Texture2D" path="res://Sprites/UI/healthbarProgress.png" id="7_b3jt0"]
+[ext_resource type="Texture2D" uid="uid://c5ckrqq7o6rdh" path="res://Sprites/UI/healthbarUnder.png" id="6_gk0ee"]
+[ext_resource type="Texture2D" uid="uid://cx7glsoydaov7" path="res://Sprites/UI/healthbarProgress.png" id="7_b3jt0"]
 [ext_resource type="Script" path="res://Scripts/enemyHealthbar.gd" id="8_132lf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wo8ys"]

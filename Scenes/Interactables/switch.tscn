@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://tbwd1hlu3o6o"]
 
-[ext_resource type="Texture2D" path="res://Sprites/Interactables/Lever.png" id="1_fesg3"]
+[ext_resource type="Texture2D" uid="uid://brtrlvvtqwmcb" path="res://Sprites/Interactables/Lever.png" id="1_fesg3"]
 [ext_resource type="Script" path="res://Scripts/switch.gd" id="1_sr6yh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bn85e"]
