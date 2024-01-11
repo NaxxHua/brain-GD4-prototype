@@ -5,7 +5,7 @@ class_name Enemy
 var moving_left = true
 var speed = 15
 var gravity = 30
-@export var dps = 10
+@export var dps = 1
 
 signal healthChanged
 

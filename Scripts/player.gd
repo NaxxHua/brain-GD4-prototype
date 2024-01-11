@@ -16,17 +16,18 @@ var speed = 200.0
 var gravity = 20
 var jump = 400
 var pressed = 2
-@export var dps = 10
-@export var maxHealth = Globals.playerMaxHealth
-@onready var currentHealth: int = maxHealth
 
 # 属性系统
 var level = 1
-var stat_points = 5
-var strength = 10
-var dexterity = 10
-var intelligence = 10
-var stamina = 10
+var stat_points = 100
+var strength = 1
+var dexterity = 1
+var intelligence = 1
+var stamina = 1
+
+var dps = ceil(1 * 1.05 ** ((strength-3)*(dexterity-3)*(intelligence-3)) * (1 + 0.1))
+@export var maxHealth = stamina * 10
+@onready var currentHealth: int = maxHealth
 
 func _ready():
 	randomize() # 初始化随机数生成器
@@ -36,11 +37,15 @@ func LevelUp():
 	level += 1
 	stat_points += 5
 
+func update_derived_stats():
+	dps = ceil(1 * 1.05 ** ((strength-3)*(dexterity-3)*(intelligence-3)) * (1 + 0.1))  # 更新DPS的计算方式
+	maxHealth = stamina * 10  # 更新最大生命值的计算方式
+
 # 计算实际的伤害值
 func calculate_damage() -> int:
 	var variance = 5 # 你可以调整这个值以增大或减小随机波动的范围
 	var random_factor = randf_range(-variance, variance) # 随机波动值
-	return max(1, dps + int(random_factor)) # 确保伤害值至少为1
+	return max(1, ceil(dps + int(random_factor))) # 确保伤害值至少为1
 
 func _physics_process(delta):
 #	Move(delta)
@@ -113,7 +118,7 @@ func Dead():
 	$anim.play("Dead")
 	await $anim.animation_finished
 	get_tree().reload_current_scene()
-	currentHealth = Globals.playerMaxHealth
+	currentHealth = maxHealth
 	OnStateFinished()
 	
 func OnStateFinished():

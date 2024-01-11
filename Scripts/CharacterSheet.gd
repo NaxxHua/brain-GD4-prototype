@@ -35,6 +35,8 @@ func LoadStats():
 	get_node(path_main_stats + "Dex/StatBG/Stats/Value").set_text(str(player.dexterity))
 	get_node(path_main_stats + "Int/StatBG/Stats/Value").set_text(str(player.intelligence))
 	get_node(path_main_stats + "Sta/StatBG/Stats/Value").set_text(str(player.stamina))
+	get_node("HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/Damage/Value").set_text(str(player.dps))
+	get_node("HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/HP/Value").set_text(str(player.maxHealth))
 
 func IncreaseStat(stat):
 	# Increase the stat_add (code)
@@ -74,6 +76,18 @@ func _on_confirm_pressed():
 		player.dexterity += dex_add
 		player.intelligence += int_add
 		player.stamina += sta_add
+		
+		# 更新派生属性
+		player.update_derived_stats()
+		# 更新UI
+		update_ui_with_new_stats()
+		
+		# 更新血量条和血量文本
+		var health_bar = get_node("../../GUI/HealthBar")
+		health_bar.update()  # 这将更新血量条
+		health_bar.update_health_label(player.currentHealth, player.maxHealth)  # 这将更新血量文本
+		
+		# 重置已添加的属性点
 		str_add = 0
 		dex_add = 0
 		int_add = 0
@@ -83,3 +97,7 @@ func _on_confirm_pressed():
 			button.disabled = true
 		for label in get_tree().get_nodes_in_group("ChangeLabels"):
 			label.set_text("")
+
+func update_ui_with_new_stats():
+	get_node("HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/Damage/Value").set_text(str(player.dps))
+	get_node("HBoxContainer/VBoxContainer/Stats/DerivedStats/VBoxContainer/HP/Value").set_text(str(player.maxHealth))
