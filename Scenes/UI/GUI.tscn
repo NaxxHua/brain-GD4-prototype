@@ -1,12 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1p6nlktk1u5d"]
+[gd_scene load_steps=9 format=3 uid="uid://c1p6nlktk1u5d"]
 
 [ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_pbv3b"]
 [ext_resource type="Texture2D" uid="uid://cvgavitdlwav" path="res://Sprites/UI/PlayerHead1.png" id="2_acpwd"]
 [ext_resource type="Texture2D" uid="uid://bwvkqwb0couwf" path="res://Sprites/Interactables/coin.png" id="3_yt17i"]
-[ext_resource type="Texture2D" uid="uid://c5ckrqq7o6rdh" path="res://Sprites/UI/healthbarUnder.png" id="5_2r4ht"]
-[ext_resource type="Texture2D" uid="uid://cx7glsoydaov7" path="res://Sprites/UI/healthbarProgress.png" id="6_g350r"]
-[ext_resource type="Script" path="res://Scripts/TextureProgressBar.gd" id="7_dmqtu"]
-[ext_resource type="Theme" uid="uid://cp1yt30lt5sbr" path="res://Theme/BrainInAVat.tres" id="7_me7ug"]
+[ext_resource type="PackedScene" uid="uid://c208vygvi28gp" path="res://Scenes/UI/health_bar.tscn" id="4_gruoa"]
 [ext_resource type="PackedScene" uid="uid://dy4wrews2paxv" path="res://Scenes/UI/character_sheet.tscn" id="7_ufg6e"]
 
 [sub_resource type="Animation" id="Animation_m6sfx"]
@@ -78,38 +75,7 @@ offset_bottom = 60.0
 text = "1"
 vertical_alignment = 1
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_left = 40.0
-offset_top = 14.5
-offset_right = 341.0
-offset_bottom = 28.5
-nine_patch_stretch = true
-stretch_margin_left = 4
-stretch_margin_top = 4
-stretch_margin_right = 4
-stretch_margin_bottom = 4
-texture_under = ExtResource("5_2r4ht")
-texture_progress = ExtResource("6_g350r")
-script = ExtResource("7_dmqtu")
-
-[node name="HealthLabel" type="Label" parent="HealthBar"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("7_me7ug")
-theme_override_font_sizes/font_size = 12
-text = "1"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="HealthBar" parent="." instance=ExtResource("4_gruoa")]
 
 [node name="CharacterSheet" parent="." instance=ExtResource("7_ufg6e")]
 visible = false

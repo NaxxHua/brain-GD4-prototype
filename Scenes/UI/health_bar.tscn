@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c208vygvi28gp"]
+
+[ext_resource type="Texture2D" uid="uid://c5ckrqq7o6rdh" path="res://Sprites/UI/healthbarUnder.png" id="1_40um6"]
+[ext_resource type="Texture2D" uid="uid://cx7glsoydaov7" path="res://Sprites/UI/healthbarProgress.png" id="2_kcy88"]
+[ext_resource type="Script" path="res://Scripts/TextureProgressBar.gd" id="3_hipmx"]
+[ext_resource type="Theme" uid="uid://cp1yt30lt5sbr" path="res://Theme/BrainInAVat.tres" id="4_jotti"]
+
+[node name="HealthBar" type="TextureProgressBar"]
+offset_left = 40.0
+offset_top = 14.5
+offset_right = 341.0
+offset_bottom = 28.5
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("1_40um6")
+texture_progress = ExtResource("2_kcy88")
+script = ExtResource("3_hipmx")
+
+[node name="HealthLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_jotti")
+theme_override_font_sizes/font_size = 12
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
