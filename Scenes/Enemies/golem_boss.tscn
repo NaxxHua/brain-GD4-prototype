@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://p7mylbegwwkq"]
+[gd_scene load_steps=18 format=3 uid="uid://p7mylbegwwkq"]
 
 [ext_resource type="Texture2D" uid="uid://c0cholrf8su25" path="res://Sprites/Enemies/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_yuxb4"]
 [ext_resource type="Texture2D" uid="uid://cyec3vvxaotuj" path="res://Sprites/Enemies/Mecha-stone Golem 0.1/weapon PNG/Laser_sheet.png" id="2_1okh8"]
@@ -227,7 +227,16 @@ _data = {
 "ranged_attack": SubResource("Animation_gpwuu")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpjhy"]
+radius = 16.0
+height = 46.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ptofi"]
+radius = 100.0
+
 [node name="GolemBoss" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_yuxb4")
@@ -297,3 +306,16 @@ offset_right = 26.0
 offset_bottom = -22.0
 text = "debug
 "
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_qpjhy")
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+position = Vector2(0, -3)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_ptofi")
+
+[node name="FiniteStateMachine" type="Node2D" parent="."]
