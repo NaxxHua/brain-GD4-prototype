@@ -57,13 +57,13 @@ func _on_hitbox_area_entered(area):
 
 func take_damage(damage_amount: int):
 	health -= damage_amount
+	# 显示伤害数字，无论敌人是否即将被销毁
+	var popup_location = get_node("PopupLocation")
+	if popup_location:
+		popup_location.popup(damage_amount)
+		
 	if health <= 0:
 		velocity.x = 0
 		$anim.play("Dead")
 		await $anim.animation_finished
-		queue_free()
-	else:
-		# If not dead, show the damage number through PopupLocation
-		var popup_location = get_node("PopupLocation")
-		if popup_location:
-			popup_location.popup(damage_amount)
+		queue_free() # 确保在动画播放完毕后销毁敌人
