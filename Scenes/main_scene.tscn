@@ -577,6 +577,8 @@ color = Color(0.792157, 0.74902, 0.603922, 1)
 
 [node name="GolemBoss" parent="." instance=ExtResource("23_41m8x")]
 position = Vector2(2223, 1002)
+collision_layer = 3
+collision_mask = 1
 
 [connection signal="body_entered" from="Door2/portal" to="Door2/portal" method="_on_body_entered"]
 [connection signal="opening_door" from="Switch" to="Door" method="_on_switch_opening_door"]

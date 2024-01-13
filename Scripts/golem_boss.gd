@@ -5,10 +5,13 @@ extends CharacterBody2D
 
 var direction : Vector2
 
+var gravity = 2000
+
 func _ready():
 	set_physics_process(false)
 
 func _process(delta):
+	direction = player.position - position
 	if direction.x < 0 :
 		sprite.flip_h = true
 	else:
@@ -17,4 +20,6 @@ func _process(delta):
 func _physics_process(delta):
 	direction = player.position - position
 	velocity = direction.normalized() * 10
-	move_and_collide(velocity * delta)
+	velocity.y += gravity * delta
+	move_and_slide()
+	
