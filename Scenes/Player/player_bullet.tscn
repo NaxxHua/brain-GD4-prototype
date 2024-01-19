@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bgf2sk51ydhd3"]
+
+[node name="player_bullet" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
