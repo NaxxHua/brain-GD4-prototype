@@ -4,6 +4,8 @@ class_name Player
 
 signal healthChanged
 
+@export var bullet_node: PackedScene
+
 enum PlayerStates {
 	MOVE,
 	HURT,
@@ -151,3 +153,18 @@ func take_damage(damage_amount: int):
 	var popup_location = get_node("PopupLocation")
 	if popup_location:
 		popup_location.popup(damage_amount)
+
+func shoot():
+	var bullet = bullet_node.instantiate()
+	
+	bullet.position = global_position
+	bullet.direction = Vector2.LEFT if $Sprite2D.flip_h else Vector2.RIGHT
+	
+	var damage_variance = randf_range(-5, 5)
+	bullet.damage = max(1, dps + int(damage_variance))
+	
+	get_tree().current_scene.call_deferred("add_child", bullet)
+
+func _input(event):
+	if event.is_action("Shoot"):
+		shoot()

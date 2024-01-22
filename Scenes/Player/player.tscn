@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bysrr8r6cv3i6"]
+[gd_scene load_steps=19 format=3 uid="uid://bysrr8r6cv3i6"]
 
 [ext_resource type="Texture2D" uid="uid://da2b5qp38unnv" path="res://Player2.png" id="1_g8kyd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_i4g3n"]
+[ext_resource type="PackedScene" uid="uid://bgf2sk51ydhd3" path="res://Scenes/Player/player_bullet.tscn" id="2_diymx"]
 [ext_resource type="Shader" path="res://Shaders/hurt.gdshader" id="2_w0awl"]
 [ext_resource type="Script" path="res://Scripts/PopupLocation.gd" id="4_tlfxt"]
 [ext_resource type="PackedScene" uid="uid://dwvlf7doo7xal" path="res://Scenes/UI/floating_numbers_purple.tscn" id="5_h2hkn"]
@@ -184,6 +185,7 @@ radius = 17.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_i4g3n")
+bullet_node = ExtResource("2_diymx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_qtbc5")

@@ -4,16 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://cvgavitdlwav" path="res://Sprites/UI/PlayerHead1.png" id="2_tvy3u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_akrdk"]
-radius = 2.0
+radius = 14.0
 
 [node name="player_bullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_qn2ou")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.104592, 0.125)
+scale = Vector2(1, 1.19)
 texture = ExtResource("2_tvy3u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 3)
 shape = SubResource("CircleShape2D_akrdk")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
