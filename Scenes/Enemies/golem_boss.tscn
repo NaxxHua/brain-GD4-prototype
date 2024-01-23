@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://p7mylbegwwkq"]
+[gd_scene load_steps=32 format=3 uid="uid://p7mylbegwwkq"]
 
 [ext_resource type="Script" path="res://Scripts/golem_boss.gd" id="1_qd345"]
 [ext_resource type="Texture2D" uid="uid://c0cholrf8su25" path="res://Sprites/Enemies/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_yuxb4"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scripts/LaserBeam.gd" id="12_b5xtm"]
 [ext_resource type="Script" path="res://Scripts/ArmorBuff.gd" id="13_241nx"]
 [ext_resource type="Script" path="res://Scripts/PopupLocation.gd" id="15_fdjwj"]
+[ext_resource type="Script" path="res://Scripts/Death.gd" id="15_nvsux"]
 [ext_resource type="PackedScene" uid="uid://dv1lnythgejja" path="res://Scenes/UI/floating_numbers_red.tscn" id="16_maw6j"]
 
 [sub_resource type="Animation" id="Animation_h2qqo"]
@@ -127,6 +128,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_aa1gt"]
@@ -480,7 +495,7 @@ script = ExtResource("13_241nx")
 script = ExtResource("12_7atjk")
 
 [node name="Death" type="Node2D" parent="FiniteStateMachine"]
-script = ExtResource("3_ge3kq")
+script = ExtResource("15_nvsux")
 
 [node name="PopupLocation" type="Marker2D" parent="."]
 self_modulate = Color(0.992157, 0.27451, 0.207843, 1)
