@@ -179,9 +179,9 @@ frame = 1
 shape = SubResource("CircleShape2D_4mxbm")
 
 [node name="anim" type="AnimationPlayer" parent="."]
-autoplay = "Active"
 libraries = {
 "": SubResource("AnimationLibrary_vgt6q")
 }
+autoplay = "Active"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

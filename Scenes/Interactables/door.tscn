@@ -140,7 +140,7 @@ frame = 1
 shape = SubResource("RectangleShape2D_r57es")
 
 [node name="anim" type="AnimationPlayer" parent="."]
-autoplay = "Closed"
 libraries = {
 "": SubResource("AnimationLibrary_40hnd")
 }
+autoplay = "Closed"

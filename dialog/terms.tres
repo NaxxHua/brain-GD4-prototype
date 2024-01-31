@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DialogicGlossary" load_steps=2 format=3 uid="uid://88y8j4gnrnkf"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Glossary/glossary_resource.gd" id="1_rqm0l"]
+
+[resource]
+script = ExtResource("1_rqm0l")
+entries = {
+"微阵列": {
+"alternatives": [],
+"case_sensitive": true,
+"color": Color(0.862745, 0.294118, 0.294118, 1),
+"text": "一个我也不知道是啥的东西",
+"title": "微型矩阵序列"
+}
+}
+enabled = true

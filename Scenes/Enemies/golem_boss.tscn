@@ -391,15 +391,14 @@ vframes = 15
 script = ExtResource("3_ge3kq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_ih4od")
 }
+autoplay = "idle"
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="UI"]
-visible = false
 custom_minimum_size = Vector2(400, 0)
 anchors_preset = 7
 anchor_left = 0.5
@@ -421,6 +420,7 @@ offset_top = -31.0
 offset_right = 217.0
 offset_bottom = -1.0
 theme = ExtResource("3_k56id")
+theme_override_font_sizes/font_size = 24
 text = "会发出射线的蓝色奇怪石头"
 
 [node name="Label" type="Label" parent="UI"]

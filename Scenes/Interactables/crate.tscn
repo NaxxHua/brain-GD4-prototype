@@ -105,9 +105,9 @@ shape = SubResource("RectangleShape2D_tnccm")
 debug_color = Color(0.917647, 0.2, 0.509804, 0.419608)
 
 [node name="anim" type="AnimationPlayer" parent="."]
-autoplay = "Active"
 libraries = {
 "": SubResource("AnimationLibrary_h7ma4")
 }
+autoplay = "Active"
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

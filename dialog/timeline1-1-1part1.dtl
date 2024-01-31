@@ -1,0 +1,29 @@
+join main_character 0
+main_character: ……
+main_character: 这是？
+main_character: 可恶，头好痛。身体……好像不太对劲。
+main_character: 我这是在哪？
+leave --All--
+join DrT 4
+DrT: 嚯，你醒啦。
+DrT: Dr. T.还以为你醒不过来了，
+DrT: 来，活动活动，看看有哪儿没连上的。
+DrT: 毕竟Dr. T.也是第一次做这个手术。
+DrT: 看来没什么大问题，不愧是Dr. T.
+- Dr. T. 是谁
+	DrT: Dr. T. 就是Dr. T.！
+- 你是谁
+	DrT: Dr. T.，蠢货。
+leave --All--
+join main_character 0
+main_character: 我是谁？
+leave --All--
+join DrT 4
+DrT: 微阵列工作正常……躯体连接正常……
+DrT: 记忆提取疑似紊乱……有待进一步观察……
+leave --All--
+join main_character 0
+main_character: 【嘿！】
+leave --All--
+join DrT 4
+DrT: 别急，等Dr. T.记录完raw data。翻翻你的邮件，说不定能想起来什么。

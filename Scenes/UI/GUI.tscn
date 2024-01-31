@@ -62,10 +62,10 @@ hframes = 8
 frame = 1
 
 [node name="anim" type="AnimationPlayer" parent="coinLogo"]
-autoplay = "coin"
 libraries = {
 "": SubResource("AnimationLibrary_mbaw8")
 }
+autoplay = "coin"
 
 [node name="coinText" type="Label" parent="."]
 offset_left = 56.5037

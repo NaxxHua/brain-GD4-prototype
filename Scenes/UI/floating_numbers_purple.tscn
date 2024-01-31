@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwvlf7doo7xal"]
+[gd_scene load_steps=6 format=3 uid="uid://dwvlf7doo7xal"]
 
 [ext_resource type="Script" path="res://Scripts/floating_numbers.gd" id="1_p6rhg"]
+[ext_resource type="Theme" uid="uid://cp1yt30lt5sbr" path="res://Theme/BrainInAVat.tres" id="2_lgws8"]
 
 [sub_resource type="Animation" id="Animation_unf3u"]
 length = 0.001
@@ -98,12 +99,13 @@ offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
+theme = ExtResource("2_lgws8")
 text = "50"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "popup"
 libraries = {
 "": SubResource("AnimationLibrary_l5cyk")
 }
+autoplay = "popup"

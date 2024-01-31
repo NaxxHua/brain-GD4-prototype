@@ -1,0 +1,89 @@
+From\: 特斯拉工作室\
+Send Time\: AP31/06/30 15\:03\
+To\: 埃里希·拉特瑙\
+CC\: 新英格兰中央银行
+Theme\: 特斯拉工作室 提供的收据\
+特斯拉工作室\
+128520 国王大道 圣乔治区 第五大区\
+新波士顿 新英格兰沿海城市同盟\
+XXX XXXXXXXXX
+Bill To\
+273965 施米特-海勒路 钢铁区 第五大区\
+新波士顿 新英格兰沿海城市同盟\
+埃里希·拉特瑙\
+XXX XXXXXXXXX
+Sold To\
+273965 施米特-海勒路 钢铁区 第五大区\
+新波士顿 新英格兰沿海城市同盟\
+埃里希·拉特瑙\
+XXX XXXXXXXXX
+商品名：RGZN157W2-试作型A\
+单号：#638577426\
+运送时间：AP31/07/01\
+件数：1
+单价：23 716 900.00 NED\
+总价：23 716 900.00 NED\
+付款方式：新英格兰中央银行
+*新英格兰沿海城市同盟同盟为免税区，不收取商品税，请确认账户中有足额金额以缴纳足额个人所得税及城市使用费。如您的账户中金额不足或无法缴纳，用户信息将在15日后冻结。
+join DrT 4
+DrT: 不错不错。
+DrT: 想起自己的名字了吗？
+[text_input text="**我的名字是……**" var="name"]
+if {name}.length() > 0 and {name}.length()  <=  3:
+	DrT: 不错，还记得自己叫啥。
+elif {name}.length() > 3 and {name}.length()  <=  6:
+	DrT: 不错，是个好名字。
+elif {name}.length() > 6 and {name}.length()  <=  10:
+	DrT: 不错，反正Dr. T. 也不知道你叫什么。
+elif {name}.length() > 10:
+	DrT: 你确定这是个名字？......不管了，这不是重点。
+leave --All--
+join main_character 0
+main_character: 【邮件里的收据是怎么回事？】
+leave --All--
+join DrT 4
+DrT: 问得好，来签个字。
+DrT: 刚才手术的账单。
+leave --All--
+join main_character 0
+set {coin} = 1
+main_character: 【……】
+leave --All--
+join DrT 4
+DrT: 好，确认到账。那么有一个坏消息要告诉你。
+leave --All--
+join main_character 0
+main_character: 【付款结束后的坏消息总是这么令人期待。】
+leave --All--
+join DrT 4
+DrT: 别在意，Dr. T.刚才只是忘了这回事。
+DrT: 之前有个人找过你，Dr. T. 不认识，也没多问为什么。
+DrT: 要知道Dr. T.当时还在忙着做唤醒你之前的准备呢，可是很复杂的！
+leave --All--
+join main_character 0
+main_character: 【然后那人去哪了？】
+leave --All--
+join DrT 4
+DrT: 如果你要找他，Dr. T. 觉得那人应该是去了酒馆。这些醉鬼都是这样，整日浸泡在酒精中。
+DrT: 从这出门，沿着43街走就到酒馆了。从外形来看，Dr. T.觉得应该称之为“旅店”更合适。
+leave --All--
+join main_character 0
+main_character: 【这是坏消息吗？】
+leave --All--
+join DrT 4
+DrT: 哦，当然不是。
+DrT: 坏消息是43街最近出了点小事故，你得去找个躯体增强模块。
+DrT: 好巧不巧，Dr. T.最近刚把一个快报废的模块丢到垃圾堆里去了，你可能得去那里翻翻看。
+leave --All--
+join main_character 0
+main_character: 【哪里？】
+leave --All--
+join DrT 4
+DrT: Dr. T.实验室下面有个废墟，现在已经成Dr. T.专属的垃圾站了。
+DrT: 不过，如果你要去的话，Dr. T.给你提个醒，很多实验报废的机器人都在下面游荡哦。
+leave --All--
+join main_character 0
+main_character: 【……】
+leave --All--
+join DrT 4
+DrT: 自己加油吧，Dr. T.可是很忙的。
