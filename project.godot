@@ -38,7 +38,7 @@ variables={
 "coin": 1500,
 "name": "？？？"
 }
-text/letter_speed=0.01
+text/letter_speed=0.1
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
 text/autoadvance_per_character_delay=0.1

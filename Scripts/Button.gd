@@ -10,8 +10,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
-
 func _on_pressed():
 	Dialogic.start("timeline1-1-1part1")
 	pass # Replace with function body.

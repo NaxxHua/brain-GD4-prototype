@@ -1,12 +1,13 @@
-From\: 特斯拉工作室\
-Send Time\: AP31/06/30 15\:03\
-To\: 埃里希·拉特瑙\
-CC\: 新英格兰中央银行
+[background arg="res://dialog/lab.jpg" fade="0.0"]
 Theme\: 特斯拉工作室 提供的收据\
 特斯拉工作室\
 128520 国王大道 圣乔治区 第五大区\
 新波士顿 新英格兰沿海城市同盟\
 XXX XXXXXXXXX
+From\: 特斯拉工作室\
+Send Time\: AP31/06/30 15\:03\
+To\: 埃里希·拉特瑙\
+CC\: 新英格兰中央银行
 Bill To\
 273965 施米特-海勒路 钢铁区 第五大区\
 新波士顿 新英格兰沿海城市同盟\
@@ -28,7 +29,7 @@ XXX XXXXXXXXX
 join DrT 4
 DrT: 不错不错。
 DrT: 想起自己的名字了吗？
-[text_input text="**我的名字是……**" var="name"]
+[text_input text="我的名字是……" var="name"]
 if {name}.length() > 0 and {name}.length()  <=  3:
 	DrT: 不错，还记得自己叫啥。
 elif {name}.length() > 3 and {name}.length()  <=  6:
