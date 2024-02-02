@@ -11,5 +11,5 @@ func _process(delta):
 	pass
 
 func _on_pressed():
-	Dialogic.start("timeline1-1-1coffeeMachine")
+	Dialogic.start("timeline1-1-1part3")
 	pass # Replace with function body.

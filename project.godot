@@ -38,8 +38,9 @@ directories/dtl_directory={
 layout/style_list=[]
 layout/default_style="Default"
 variables={
-"canTalkcoffee": false,
-"coffeeMachine": false,
+"canTalkCoffee": 0.0,
+"canTurnOffCoffee": 0.0,
+"coffeeMachine": 1.0,
 "coin": 1500,
 "name": "？？？"
 }
