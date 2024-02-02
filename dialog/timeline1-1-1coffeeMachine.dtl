@@ -1,0 +1,4 @@
+join main_character 0
+set {canTalkcoffee} = true
+main_character: 嗡嗡作响的咖啡机。
+main_character: 按下开关，没有反应，依旧在嗡嗡作响。

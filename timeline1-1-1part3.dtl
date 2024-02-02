@@ -1,0 +1,12 @@
+[background arg="res://dialog/lab.jpg" fade="0.0"]
+join DrT 4
+DrT: 嚯，想问什么，Dr. T. 知无不言！
+- 怎么关闭咖啡机 [if {canTalkcoffee} == true]
+	DrT: 你为什么要关？
+	DrT: 你先逆时针旋转旋钮三圈。
+	DrT: 然后再顺时针两圈。
+	DrT: 再往里按一下。
+	DrT: 最后拔掉电源。
+- 我为什么会在这里？
+- 我原来的身体在哪？
+- 我该干什么

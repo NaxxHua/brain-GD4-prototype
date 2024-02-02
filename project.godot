@@ -29,12 +29,17 @@ directories/dch_directory={
 directories/dtl_directory={
 "UI/1-1-1part0": "res://Sprites/UI/1-1-1part0.dtl",
 "UI/1-1-1part1": "res://Sprites/UI/1-1-1part1.dtl",
+"timeline1-1-1coffeeMachine": "res://dialog/timeline1-1-1coffeeMachine.dtl",
 "timeline1-1-1part1": "res://dialog/timeline1-1-1part1.dtl",
-"timeline1-1-1part2": "res://dialog/timeline1-1-1part2.dtl"
+"timeline1-1-1part2": "res://dialog/timeline1-1-1part2.dtl",
+"timeline1-1-1part3": "res://timeline1-1-1part3.dtl",
+"timeline1-1-1prosthesis": "res://dialog/timeline1-1-1prosthesis.dtl"
 }
 layout/style_list=[]
 layout/default_style="Default"
 variables={
+"canTalkcoffee": false,
+"coffeeMachine": false,
 "coin": 1500,
 "name": "？？？"
 }
