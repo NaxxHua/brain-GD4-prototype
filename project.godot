@@ -33,6 +33,7 @@ directories/dtl_directory={
 "timeline1-1-1part1": "res://dialog/timeline1-1-1part1.dtl",
 "timeline1-1-1part2": "res://dialog/timeline1-1-1part2.dtl",
 "timeline1-1-1part3": "res://timeline1-1-1part3.dtl",
+"timeline1-1-1part4": "res://timeline1-1-1part4.dtl",
 "timeline1-1-1prosthesis": "res://dialog/timeline1-1-1prosthesis.dtl"
 }
 layout/style_list=[]

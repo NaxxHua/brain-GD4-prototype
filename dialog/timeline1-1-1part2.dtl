@@ -40,7 +40,7 @@ elif {name}.length() > 10:
 	DrT: 你确定这是个名字？......不管了，这不是重点。
 leave --All--
 join main_character 0
-main_character: 【邮件里的收据是怎么回事？】
+main_character: 邮件里的收据是怎么回事？
 leave --All--
 join DrT 4
 DrT: 问得好，来签个字。
@@ -48,7 +48,7 @@ DrT: 刚才手术的账单。
 leave --All--
 join main_character 0
 set {coin} = 1
-main_character: 【……】
+main_character: ……
 leave --All--
 join DrT 4
 DrT: 好，确认到账。那么有一个坏消息要告诉你。
@@ -62,14 +62,14 @@ DrT: 之前有个人找过你，Dr. T. 不认识，也没多问为什么。
 DrT: 要知道Dr. T.当时还在忙着做唤醒你之前的准备呢，可是很复杂的！
 leave --All--
 join main_character 0
-main_character: 【然后那人去哪了？】
+main_character: 然后那人去哪了？
 leave --All--
 join DrT 4
 DrT: 如果你要找他，Dr. T. 觉得那人应该是去了酒馆。这些醉鬼都是这样，整日浸泡在酒精中。
 DrT: 从这出门，沿着43街走就到酒馆了。从外形来看，Dr. T.觉得应该称之为“旅店”更合适。
 leave --All--
 join main_character 0
-main_character: 【这是坏消息吗？】
+main_character: 这是坏消息吗？
 leave --All--
 join DrT 4
 DrT: 哦，当然不是。
@@ -77,14 +77,14 @@ DrT: 坏消息是43街最近出了点小事故，你得去找个躯体增强模�
 DrT: 好巧不巧，Dr. T.最近刚把一个快报废的模块丢到垃圾堆里去了，你可能得去那里翻翻看。
 leave --All--
 join main_character 0
-main_character: 【哪里？】
+main_character: 哪里？
 leave --All--
 join DrT 4
 DrT: Dr. T.实验室下面有个废墟，现在已经成Dr. T.专属的垃圾站了。
 DrT: 不过，如果你要去的话，Dr. T.给你提个醒，很多实验报废的机器人都在下面游荡哦。
 leave --All--
 join main_character 0
-main_character: 【……】
+main_character: ……
 leave --All--
 join DrT 4
 DrT: 自己加油吧，Dr. T.可是很忙的。

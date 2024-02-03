@@ -24,7 +24,7 @@ DrT: 微阵列工作正常……躯体连接正常……
 DrT: 记忆提取疑似紊乱……有待进一步观察……
 leave --All--
 join main_character 0
-main_character: 【嘿！】
+main_character: 嘿！
 leave --All--
 join DrT 4
 DrT: 别急，等Dr. T.记录完raw data。翻翻你的邮件，说不定能想起来什么。
