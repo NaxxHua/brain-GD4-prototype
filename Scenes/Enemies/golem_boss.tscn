@@ -399,6 +399,7 @@ autoplay = "idle"
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="ProgressBar" type="ProgressBar" parent="UI"]
+visible = false
 custom_minimum_size = Vector2(400, 0)
 anchors_preset = 7
 anchor_left = 0.5

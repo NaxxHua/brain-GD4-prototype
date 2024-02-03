@@ -1,0 +1,12 @@
+join main_character 0
+if {coffeeMachine} == 0:
+	main_character: 这个咖啡机已经关掉了，我好机智啊！
+else:
+	set {canTalkCoffee} = 1
+	main_character: 嗡嗡作响的咖啡机。
+	main_character: 按下开关，没有反应，依旧在嗡嗡作响。
+if {canTurnOffCoffee} == 1:
+	set {canTurnOffCoffee} = 0
+	set {coffeeMachine} = 0
+	main_character: 逆时针旋转旋钮三圈，顺时针两圈，往里按一下，拔掉电源……
+	main_character: 居然真的关掉了！

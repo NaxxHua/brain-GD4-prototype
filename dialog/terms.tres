@@ -9,6 +9,7 @@ entries = {
 "alternatives": [],
 "case_sensitive": true,
 "color": Color(0.862745, 0.294118, 0.294118, 1),
+"extra": "",
 "text": "一个我也不知道是啥的东西",
 "title": "微型矩阵序列"
 }
