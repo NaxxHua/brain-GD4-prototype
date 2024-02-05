@@ -1,0 +1,43 @@
+[background arg="res://dialog/lab.jpg" fade="0.0"]
+join DrT 4
+if {coffeeMachine} == 0:
+	DrT: 关了？你真的照做了？ #id:5f
+	DrT: 嚯，真有趣。 #id:60
+	DrT: ……对象在逻辑思维与认知能力上似乎存在缺陷，有待观察…… #id:61
+	set {canTalkCoffee} = 0
+	jump timeline1-1-1part3/dialog
+label dialog
+DrT: 嚯，想问什么，Dr. T. 知无不言！ #id:62
+- 怎么关闭咖啡机 [if {canTalkCoffee} == 1] #id:63
+	DrT: 你为什么要关？ #id:64
+	DrT: 你先逆时针旋转旋钮三圈。 #id:65
+	DrT: 然后再顺时针两圈。 #id:66
+	DrT: 再往里按一下。 #id:67
+	DrT: 最后拔掉电源。 #id:68
+	set {canTurnOffCoffee} = 1
+	jump dialog
+- 我为什么会在这里？ #id:69
+	DrT: 啊，你说这个。 #id:6a
+	DrT: 大概是一个月，还是几周前来着？ #id:6b
+	DrT: 日薄西山，Dr. T.正准备休息。 #id:6c
+	DrT: 一个金发小姑娘拖着一口……棺材？或许是个大冰冻盒，很难说。 #id:6d
+	DrT: 浑身是血，满脸泪痕，眼神和语气却…… #id:6e
+	DrT: 怎么说呢…… #id:6f
+	DrT: 坚定有力。 #id:70
+	DrT: “麻烦您救救这个人”，随后留下一笔钱就走了。 #id:71
+	DrT: 她说你是出了车祸，这一套说辞真是太小瞧Dr. T.了。 #id:72
+	DrT: 总之，最后给你换了个身体，你先适应适应。 #id:73
+	jump dialog
+- 我原来的身体在哪？ #id:74
+	DrT: 谁知道呢？ #id:75
+	DrT: 可能在海里，可能在天上，可能在土里。 #id:76
+	DrT: 如果你问的是那些有机体的话。 #id:77
+	DrT: 那些“破铜烂铁”的话，已经被Dr. T.“回收”了。无需挂念。 #id:78
+	jump dialog
+- 我该干什么 #id:79
+	DrT: Dr. T.实验室下面有个废墟，你可以去那里翻翻增强模块。 #id:7a
+	DrT: 不过Dr. T.给你提个醒，很多实验报废的机器人都在下面游荡哦。 #id:7b
+	DrT: 注意安全，你可是宝贵的实验对象。 #id:7c
+	jump dialog
+- 那就这样吧 #id:7d
+	[end_timeline]

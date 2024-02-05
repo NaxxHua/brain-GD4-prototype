@@ -27,13 +27,17 @@ directories/dch_directory={
 "main_character": "res://dialog/main_character.dch"
 }
 directories/dtl_directory={
-"UI/1-1-1part0": "res://Sprites/UI/1-1-1part0.dtl",
-"UI/1-1-1part1": "res://Sprites/UI/1-1-1part1.dtl",
+"0": "res://Sprites/UI/1-1-1part0.dtl",
+"00": "res://timeline1-1-1part3.dtl",
+"000": "res://addons/dialogic/Editor/Events/Fields/timeline1-1-1part4.dtl",
+"0000": "res://Sprites/UI/1-1-1part1.dtl",
+"Fields/timeline1-1-1part3": "res://addons/dialogic/Editor/Events/Fields/timeline1-1-1part3.dtl",
+"timeline": "res://dialog/timeline.dtl",
 "timeline1-1-1coffeeMachine": "res://dialog/timeline1-1-1coffeeMachine.dtl",
 "timeline1-1-1part1": "res://dialog/timeline1-1-1part1.dtl",
 "timeline1-1-1part2": "res://dialog/timeline1-1-1part2.dtl",
-"timeline1-1-1part3": "res://timeline1-1-1part3.dtl",
-"timeline1-1-1part4": "res://timeline1-1-1part4.dtl",
+"timeline1-1-1part3": "res://dialog/timeline1-1-1part3.dtl",
+"timeline1-1-1part4": "res://dialog/timeline1-1-1part4.dtl",
 "timeline1-1-1prosthesis": "res://dialog/timeline1-1-1prosthesis.dtl"
 }
 layout/style_list=[]
@@ -64,10 +68,14 @@ text/autopauses={}
 glossary/default_case_sensitive=true
 glossary/glossary_files=["res://dialog/terms.tres"]
 translation/enabled=true
-translation/original_locale="en"
+translation/original_locale="zh"
 translation/file_mode=1
-translation/translation_folder=""
+translation/translation_folder="res://dialog/translation"
 translation/save_mode=0
+translation/id_counter=143
+translation/intern/save_mode=0
+translation/intern/file_mode=1
+translation/intern/translation_folder="res://dialog/translation"
 
 [display]
 
@@ -121,6 +129,10 @@ dialogic_default_action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/test="zh"
 
 [rendering]
 
