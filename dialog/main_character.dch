@@ -17,9 +17,9 @@
 "portraits": {
 "default": {
 "export_overrides": {
-"image": "\"res://addons/portraits4.png\""
+"image": "\"res://dialog/ExperimentalA.png\""
 },
-"mirror": false,
+"mirror": true,
 "offset": Vector2(0, 0),
 "scale": 1,
 "scene": ""

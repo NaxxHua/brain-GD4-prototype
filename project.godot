@@ -28,11 +28,9 @@ directories/dch_directory={
 }
 directories/dtl_directory={
 "0": "res://Sprites/UI/1-1-1part0.dtl",
-"00": "res://timeline1-1-1part3.dtl",
 "000": "res://addons/dialogic/Editor/Events/Fields/timeline1-1-1part4.dtl",
 "0000": "res://Sprites/UI/1-1-1part1.dtl",
-"Fields/timeline1-1-1part3": "res://addons/dialogic/Editor/Events/Fields/timeline1-1-1part3.dtl",
-"timeline": "res://dialog/timeline.dtl",
+"00000": "res://addons/dialogic/Editor/Events/Fields/timeline1-1-1part3.dtl",
 "timeline1-1-1coffeeMachine": "res://dialog/timeline1-1-1coffeeMachine.dtl",
 "timeline1-1-1part1": "res://dialog/timeline1-1-1part1.dtl",
 "timeline1-1-1part2": "res://dialog/timeline1-1-1part2.dtl",
@@ -76,6 +74,7 @@ translation/id_counter=143
 translation/intern/save_mode=0
 translation/intern/file_mode=1
 translation/intern/translation_folder="res://dialog/translation"
+history/simple_history_enabled=false
 
 [display]
 

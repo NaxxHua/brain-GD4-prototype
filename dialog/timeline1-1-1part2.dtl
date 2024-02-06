@@ -54,7 +54,7 @@ join DrT 4
 DrT: 好，确认到账。那么有一个坏消息要告诉你。 #id:3b
 leave --All--
 join main_character 0
-main_character: 【付款结束后的坏消息总是这么令人期待。】 #id:3c
+main_character: 付款结束后的坏消息总是这么令人期待。 #id:3c
 leave --All--
 join DrT 4
 DrT: 别在意，Dr. T.刚才只是忘了这回事。 #id:3d
