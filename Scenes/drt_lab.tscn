@@ -484,7 +484,7 @@ layer_0/tile_data = PackedInt32Array(851968, 196609, 1, 851969, 196609, 1, 85197
 [node name="Walls" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Walls"]
-offset_right = 384.0
+offset_right = 500.0
 offset_bottom = 216.0
 texture = ExtResource("5_38ld4")
 stretch_mode = 1
@@ -492,9 +492,8 @@ stretch_mode = 1
 [node name="Equipments" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Equipments"]
-offset_left = 1.0
 offset_top = 118.0
-offset_right = 801.0
+offset_right = 600.0
 offset_bottom = 218.0
 texture = ExtResource("7_e4ijh")
 stretch_mode = 1
