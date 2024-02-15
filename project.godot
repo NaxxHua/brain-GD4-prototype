@@ -78,7 +78,7 @@ history/simple_history_enabled=false
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
