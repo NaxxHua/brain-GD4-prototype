@@ -462,14 +462,13 @@ sources/2 = SubResource("TileSetAtlasSource_idotf")
 
 [node name="Player" parent="." instance=ExtResource("1_ns0fg")]
 z_index = 3
-position = Vector2(203, 168)
+position = Vector2(204, 192)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -50)
 zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("2_21jld")
 
@@ -482,18 +481,23 @@ layer_0/tile_data = PackedInt32Array(851968, 196609, 1, 851969, 196609, 1, 85197
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Walls" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0)
+motion_mirroring = Vector2(400, 0)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Walls"]
-offset_right = 500.0
+offset_right = 400.0
 offset_bottom = 216.0
 texture = ExtResource("5_38ld4")
 stretch_mode = 1
 
 [node name="Equipments" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0)
+motion_mirroring = Vector2(400, 0)
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Equipments"]
+offset_left = -4.0
 offset_top = 118.0
-offset_right = 600.0
+offset_right = 396.0
 offset_bottom = 218.0
 texture = ExtResource("7_e4ijh")
 stretch_mode = 1

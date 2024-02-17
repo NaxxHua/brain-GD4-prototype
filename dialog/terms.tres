@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_rqm0l")
 entries = {
+"New Entry": {},
 "微阵列": {
 "alternatives": [],
 "case_sensitive": true,
