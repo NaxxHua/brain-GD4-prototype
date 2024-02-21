@@ -31,6 +31,9 @@ var dps = ceil(1 * 1.05 ** ((strength-3)*(dexterity-3)*(intelligence-3)) * (1 + 
 @export var maxHealth = stamina * 10
 @onready var currentHealth: int = maxHealth
 
+@export var bullet_cooldown: float = 0.2 # 子弹的冷却时间，单位为秒
+var last_shot_time: float = -bullet_cooldown # 上次射击时间
+
 func _ready():
 	randomize() # 初始化随机数生成器
 	$Sword/CollisionShape2D.disabled = true
@@ -156,15 +159,18 @@ func take_damage(damage_amount: int):
 		popup_location.popup(damage_amount)
 
 func shoot():
-	var bullet = bullet_node.instantiate()
-	
-	bullet.position = global_position
-	bullet.direction = Vector2.LEFT if $Sprite2D.flip_h else Vector2.RIGHT
-	
-	var damage_variance = randf_range(-5, 5)
-	bullet.damage = max(1, dps + int(damage_variance))
-	
-	get_tree().current_scene.call_deferred("add_child", bullet)
+	var current_time = Time.get_ticks_msec() / 1000.0 # 获取当前时间（秒）
+	if current_time - last_shot_time >= bullet_cooldown:
+		var bullet = bullet_node.instantiate()
+		
+		bullet.position = global_position
+		bullet.direction = Vector2.LEFT if $Sprite2D.flip_h else Vector2.RIGHT
+		
+		var damage_variance = randf_range(-5, 5)
+		bullet.damage = max(1, dps + int(damage_variance))
+		
+		get_tree().current_scene.call_deferred("add_child", bullet)
+		last_shot_time = current_time # 更新上次射击时间
 
 func _input(event):
 	if event.is_action("Shoot"):
