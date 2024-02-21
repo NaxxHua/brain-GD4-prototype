@@ -1,9 +1,9 @@
 [gd_scene load_steps=19 format=3 uid="uid://bysrr8r6cv3i6"]
 
-[ext_resource type="Texture2D" uid="uid://da2b5qp38unnv" path="res://Player2.png" id="1_g8kyd"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_i4g3n"]
 [ext_resource type="PackedScene" uid="uid://bgf2sk51ydhd3" path="res://Scenes/Player/player_bullet.tscn" id="2_diymx"]
 [ext_resource type="Shader" path="res://Shaders/hurt.gdshader" id="2_w0awl"]
+[ext_resource type="Texture2D" uid="uid://dn0eh2x44vc1y" path="res://Sprites/ExpA.png" id="4_1375a"]
 [ext_resource type="Script" path="res://Scripts/PopupLocation.gd" id="4_tlfxt"]
 [ext_resource type="PackedScene" uid="uid://dwvlf7doo7xal" path="res://Scenes/UI/floating_numbers_purple.tscn" id="5_h2hkn"]
 
@@ -25,10 +25,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [20, 21, 22, 23, 24]
+"values": [17, 18, 19, 20, 21, 22, 23, 24, 25]
 }
 
 [sub_resource type="Animation" id="Animation_dqto6"]
@@ -44,7 +44,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [19]
+"values": [11]
 }
 
 [sub_resource type="Animation" id="Animation_pb2du"]
@@ -58,10 +58,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 1, 2, 3, 4, 5]
+"values": [8, 9, 9, 10]
 }
 
 [sub_resource type="Animation" id="Animation_d7lwi"]
@@ -77,7 +77,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [18]
+"values": [12]
 }
 
 [sub_resource type="Animation" id="Animation_1fks5"]
@@ -92,7 +92,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [8]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -120,7 +120,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [14, 15, 16, 17]
+"values": [13, 14, 15, 16]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -160,10 +160,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [6, 7, 8, 9, 10, 11, 12, 13]
+"values": [1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j8ndd"]
@@ -189,10 +189,10 @@ bullet_node = ExtResource("2_diymx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_qtbc5")
-texture = ExtResource("1_g8kyd")
-hframes = 5
-vframes = 5
-frame = 1
+position = Vector2(0, -15)
+texture = ExtResource("4_1375a")
+hframes = 26
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)

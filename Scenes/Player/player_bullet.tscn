@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgf2sk51ydhd3"]
 
 [ext_resource type="Script" path="res://Scripts/player_bullet.gd" id="1_qn2ou"]
-[ext_resource type="Texture2D" uid="uid://cvgavitdlwav" path="res://Sprites/UI/PlayerHead1.png" id="2_tvy3u"]
+[ext_resource type="Texture2D" uid="uid://candno122l0fp" path="res://Sprites/missle.png" id="2_f6yoi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_akrdk"]
 radius = 14.0
@@ -13,7 +13,7 @@ script = ExtResource("1_qn2ou")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1, 1.19)
-texture = ExtResource("2_tvy3u")
+texture = ExtResource("2_f6yoi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 3)

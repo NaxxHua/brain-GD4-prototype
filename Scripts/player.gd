@@ -119,9 +119,10 @@ func Sword():
 func Dead():
 	$anim.play("Dead")
 	await $anim.animation_finished
-	get_tree().reload_current_scene()
-	currentHealth = maxHealth
-	OnStateFinished()
+	if is_inside_tree():
+		get_tree().reload_current_scene()
+		currentHealth = maxHealth
+		OnStateFinished()
 	
 func OnStateFinished():
 	currentState = PlayerStates.MOVE
