@@ -1,10 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://ihiq4d2vl4vn"]
+[gd_scene load_steps=18 format=3 uid="uid://ihiq4d2vl4vn"]
 
 [ext_resource type="Script" path="res://Scripts/cam.gd" id="1_2q1ln"]
 [ext_resource type="PackedScene" uid="uid://bysrr8r6cv3i6" path="res://Scenes/Player/player.tscn" id="1_vffuc"]
 [ext_resource type="PackedScene" uid="uid://d1fu2lnyhg67c" path="res://Scenes/Interactables/crate.tscn" id="3_5l670"]
-[ext_resource type="Theme" uid="uid://cp1yt30lt5sbr" path="res://Theme/BrainInAVat.tres" id="12_cf0b4"]
-[ext_resource type="Script" path="res://Scripts/ButtonToDrLab.gd" id="13_mey42"]
+[ext_resource type="Script" path="res://Scripts/PortalToLab.gd" id="12_yhsyh"]
+[ext_resource type="PackedScene" uid="uid://wac6utieqlny" path="res://Scenes/Interactables/interaction_area/interaction_area.tscn" id="13_c0fmt"]
 [ext_resource type="PackedScene" uid="uid://c1p6nlktk1u5d" path="res://Scenes/UI/GUI.tscn" id="15_hkgrc"]
 [ext_resource type="PackedScene" uid="uid://cnrheespc4bh2" path="res://Scenes/Enemies/enemy.tscn" id="17_g2x7x"]
 [ext_resource type="PackedScene" uid="uid://bmyo7dheg2o4n" path="res://Scenes/Interactables/coin.tscn" id="17_na0dn"]
@@ -140,6 +140,9 @@ sources/0 = SubResource("TileSetAtlasSource_nw5he")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qkm4r"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ed1a"]
+radius = 57.0351
+
 [node name="MainScene" type="Node2D"]
 
 [node name="Ground" type="TileMap" parent="."]
@@ -220,15 +223,28 @@ position = Vector2(1266, 153)
 collision_layer = 3
 collision_mask = 1
 
-[node name="Button" type="Button" parent="."]
-offset_left = 3.0
-offset_top = 149.0
-offset_right = 67.0
-offset_bottom = 175.0
-theme = ExtResource("12_cf0b4")
-text = "DrT实验室"
-script = ExtResource("13_mey42")
+[node name="PortalToLab" type="Node2D" parent="."]
+position = Vector2(40, 158)
+script = ExtResource("12_yhsyh")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="Label" type="Label" parent="PortalToLab"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.5
+offset_top = -11.5
+offset_right = 33.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "~传送门~"
+
+[node name="InteractionArea" parent="PortalToLab" instance=ExtResource("13_c0fmt")]
+action_name = "传送"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortalToLab/InteractionArea"]
+shape = SubResource("CircleShape2D_1ed1a")
 
 [editable path="map"]

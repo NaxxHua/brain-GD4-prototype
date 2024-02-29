@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://be6acdueddrta"]
+[gd_scene load_steps=22 format=3 uid="uid://be6acdueddrta"]
 
 [ext_resource type="Script" path="res://Scripts/drt_lab.gd" id="1_ji4no"]
 [ext_resource type="PackedScene" uid="uid://bysrr8r6cv3i6" path="res://Scenes/Player/player.tscn" id="1_ns0fg"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://c65nqtn4lflop" path="res://Sprites/lab_bg.png" id="5_38ld4"]
 [ext_resource type="Texture2D" uid="uid://cuhp7gsuctpgy" path="res://Sprites/lab_equip.png" id="7_e4ijh"]
 [ext_resource type="Script" path="res://Scripts/DrT.gd" id="7_ivxh3"]
-[ext_resource type="Script" path="res://Scripts/ChangeSceneButton.gd" id="7_nhhna"]
 [ext_resource type="PackedScene" uid="uid://wac6utieqlny" path="res://Scenes/Interactables/interaction_area/interaction_area.tscn" id="8_28udl"]
 [ext_resource type="Texture2D" uid="uid://c36gc7f5ogote" path="res://Sprites/drt.png" id="8_i50rj"]
 [ext_resource type="Theme" uid="uid://cp1yt30lt5sbr" path="res://Theme/BrainInAVat.tres" id="11_o0dii"]
@@ -15,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://koylstnrs32v" path="res://Sprites/coffee_machine.png" id="12_s5622"]
 [ext_resource type="Script" path="res://Scripts/Prothesis.gd" id="14_4rpin"]
 [ext_resource type="Texture2D" uid="uid://buu5ut0n4c46j" path="res://Sprites/prosthesis.png" id="15_7bqh7"]
+[ext_resource type="Script" path="res://Scripts/PortalToRuin1.gd" id="15_hd3lc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2b6bv"]
 resource_name = "<Object#null>"
@@ -150,8 +150,24 @@ radius = 33.0606
 [sub_resource type="CircleShape2D" id="CircleShape2D_pduni"]
 radius = 50.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_563p4"]
+radius = 88.1419
+
 [node name="DrtLab" type="Node2D"]
 script = ExtResource("1_ji4no")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 405.0
+offset_top = 101.0
+offset_right = 480.0
+offset_bottom = 202.0
+theme = ExtResource("11_o0dii")
+text = "↑↓←→移动
+C 跳跃
+X 攻击
+Q 射击"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Ground" type="TileMap" parent="."]
 z_index = 1
@@ -196,15 +212,6 @@ offset_bottom = 218.0
 texture = ExtResource("7_e4ijh")
 stretch_mode = 1
 
-[node name="Button" type="Button" parent="."]
-offset_left = 1440.0
-offset_top = 171.0
-offset_right = 1597.0
-offset_bottom = 202.0
-theme = ExtResource("11_o0dii")
-text = "通往地下废墟1"
-script = ExtResource("7_nhhna")
-
 [node name="DrT" type="Node2D" parent="."]
 position = Vector2(332, 193)
 script = ExtResource("7_ivxh3")
@@ -217,19 +224,6 @@ action_name = "对话"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DrT/InteractionArea"]
 shape = SubResource("CircleShape2D_3hs1n")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 405.0
-offset_top = 101.0
-offset_right = 480.0
-offset_bottom = 202.0
-theme = ExtResource("11_o0dii")
-text = "↑↓←→移动
-C 跳跃
-X 攻击
-Q 射击"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="CoffeeMachine" type="Node2D" parent="."]
 position = Vector2(574, 194)
@@ -259,4 +253,17 @@ shape = SubResource("CircleShape2D_pduni")
 [node name="Sprite2D" type="Sprite2D" parent="Prosthesis"]
 texture = ExtResource("15_7bqh7")
 
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[node name="Portal" type="Node2D" parent="."]
+position = Vector2(1515, 185)
+script = ExtResource("15_hd3lc")
+
+[node name="InteractionArea" parent="Portal" instance=ExtResource("8_28udl")]
+action_name = "传送"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/InteractionArea"]
+shape = SubResource("CircleShape2D_563p4")
+
+[node name="Label" type="Label" parent="Portal"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "~传送门~"

@@ -5,17 +5,16 @@
 [resource]
 script = ExtResource("1_rqm0l")
 entries = {
-"3122New Entry": {
-"case_sensitive": true,
-"text": "123"
-},
 "微阵列": {
 "alternatives": [],
 "case_sensitive": true,
 "color": Color(0.862745, 0.294118, 0.294118, 1),
 "extra": "",
+"name": "微阵列",
 "text": "一个我也不知道是啥的东西",
 "title": "微型矩阵序列"
 }
 }
 enabled = true
+_translation_id = ""
+_translation_keys = {}
