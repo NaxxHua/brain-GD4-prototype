@@ -88,3 +88,4 @@ main_character: …… #id:4a
 leave --All--
 join DrT 4
 DrT: 自己加油吧，Dr. T.可是很忙的。 #id:4b
+set {part2Done} = true

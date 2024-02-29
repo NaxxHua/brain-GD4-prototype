@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c1p6nlktk1u5d"]
 
 [ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_pbv3b"]
-[ext_resource type="Texture2D" uid="uid://cvgavitdlwav" path="res://Sprites/UI/PlayerHead1.png" id="2_acpwd"]
+[ext_resource type="Texture2D" uid="uid://faxxk1cml68j" path="res://dialog/ExperimentalA.png" id="2_u35se"]
 [ext_resource type="Texture2D" uid="uid://bwvkqwb0couwf" path="res://Sprites/Interactables/coin.png" id="3_yt17i"]
 [ext_resource type="PackedScene" uid="uid://c208vygvi28gp" path="res://Scenes/UI/health_bar.tscn" id="4_gruoa"]
 [ext_resource type="PackedScene" uid="uid://dy4wrews2paxv" path="res://Scenes/UI/character_sheet.tscn" id="7_ufg6e"]
@@ -51,7 +51,9 @@ script = ExtResource("1_pbv3b")
 
 [node name="PlayerLife" type="Sprite2D" parent="."]
 position = Vector2(24.5, 15.5)
-texture = ExtResource("2_acpwd")
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_u35se")
+flip_h = true
 
 [node name="coinLogo" type="Sprite2D" parent="."]
 position = Vector2(47.0037, 47.5)

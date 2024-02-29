@@ -22,7 +22,7 @@ var pressed = 2
 # 属性系统
 var level = 1
 var stat_points = 100
-var strength = 1
+var strength = 15
 var dexterity = 1
 var intelligence = 1
 var stamina = 1

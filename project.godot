@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*res://Scripts/Globals.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 InteractablesManager="*res://Scenes/Interactables/InteractablesManager.tscn"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -42,11 +42,14 @@ directories/dtl_directory={
 layout/style_list=[]
 layout/default_style="Default"
 variables={
+"bossDead": false,
 "canTalkCoffee": 0.0,
 "canTurnOffCoffee": 0.0,
 "coffeeMachine": 1.0,
 "coin": 1500,
-"name": "？？？"
+"name": "？？？",
+"part1Done": false,
+"part2Done": false
 }
 text/letter_speed=0.1
 text/initial_text_reveal_skippable=true

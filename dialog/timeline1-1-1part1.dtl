@@ -28,3 +28,4 @@ main_character: 嘿！ #id:27
 leave --All--
 join DrT 4
 DrT: 别急，等Dr. T.记录完raw data。翻翻你的邮件，说不定能想起来什么。 #id:28
+set {part1Done} = true

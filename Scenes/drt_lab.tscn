@@ -1,5 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://be6acdueddrta"]
+[gd_scene load_steps=21 format=3 uid="uid://be6acdueddrta"]
 
+[ext_resource type="Script" path="res://Scripts/drt_lab.gd" id="1_ji4no"]
 [ext_resource type="PackedScene" uid="uid://bysrr8r6cv3i6" path="res://Scenes/Player/player.tscn" id="1_ns0fg"]
 [ext_resource type="Texture2D" uid="uid://2qaci8rc7s5o" path="res://Sprites/grass_tiles.png" id="1_tinm0"]
 [ext_resource type="Script" path="res://Scripts/cam.gd" id="2_21jld"]
@@ -9,6 +10,11 @@
 [ext_resource type="Script" path="res://Scripts/ChangeSceneButton.gd" id="7_nhhna"]
 [ext_resource type="PackedScene" uid="uid://wac6utieqlny" path="res://Scenes/Interactables/interaction_area/interaction_area.tscn" id="8_28udl"]
 [ext_resource type="Texture2D" uid="uid://c36gc7f5ogote" path="res://Sprites/drt.png" id="8_i50rj"]
+[ext_resource type="Theme" uid="uid://cp1yt30lt5sbr" path="res://Theme/BrainInAVat.tres" id="11_o0dii"]
+[ext_resource type="Script" path="res://Scripts/CoffeeMachine.gd" id="12_s04ui"]
+[ext_resource type="Texture2D" uid="uid://koylstnrs32v" path="res://Sprites/coffee_machine.png" id="12_s5622"]
+[ext_resource type="Script" path="res://Scripts/Prothesis.gd" id="14_4rpin"]
+[ext_resource type="Texture2D" uid="uid://buu5ut0n4c46j" path="res://Sprites/prosthesis.png" id="15_7bqh7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2b6bv"]
 resource_name = "<Object#null>"
@@ -135,10 +141,17 @@ terrain_set_1/terrain_1/name = "lab_ground"
 terrain_set_1/terrain_1/color = Color(0.619608, 0.266667, 0.141176, 1)
 sources/4 = SubResource("TileSetAtlasSource_2b6bv")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m6mx0"]
-radius = 53.0094
+[sub_resource type="CircleShape2D" id="CircleShape2D_3hs1n"]
+radius = 60.0083
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2qslj"]
+radius = 33.0606
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pduni"]
+radius = 50.0
 
 [node name="DrtLab" type="Node2D"]
+script = ExtResource("1_ji4no")
 
 [node name="Ground" type="TileMap" parent="."]
 z_index = 1
@@ -188,7 +201,8 @@ offset_left = 1440.0
 offset_top = 171.0
 offset_right = 1597.0
 offset_bottom = 202.0
-text = "Click me to get out!"
+theme = ExtResource("11_o0dii")
+text = "通往地下废墟1"
 script = ExtResource("7_nhhna")
 
 [node name="DrT" type="Node2D" parent="."]
@@ -202,6 +216,47 @@ texture = ExtResource("8_i50rj")
 action_name = "对话"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DrT/InteractionArea"]
-shape = SubResource("CircleShape2D_m6mx0")
+shape = SubResource("CircleShape2D_3hs1n")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 405.0
+offset_top = 101.0
+offset_right = 480.0
+offset_bottom = 202.0
+theme = ExtResource("11_o0dii")
+text = "↑↓←→移动
+C 跳跃
+X 攻击
+Q 射击"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoffeeMachine" type="Node2D" parent="."]
+position = Vector2(574, 194)
+script = ExtResource("12_s04ui")
+
+[node name="InteractionArea" parent="CoffeeMachine" instance=ExtResource("8_28udl")]
+action_name = "互动"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoffeeMachine/InteractionArea"]
+shape = SubResource("CircleShape2D_2qslj")
+
+[node name="Sprite2D" type="Sprite2D" parent="CoffeeMachine"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_s5622")
+
+[node name="Prosthesis" type="Node2D" parent="."]
+position = Vector2(59, 201)
+scale = Vector2(0.4, 0.4)
+script = ExtResource("14_4rpin")
+
+[node name="InteractionArea" parent="Prosthesis" instance=ExtResource("8_28udl")]
+action_name = "互动"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prosthesis/InteractionArea"]
+shape = SubResource("CircleShape2D_pduni")
+
+[node name="Sprite2D" type="Sprite2D" parent="Prosthesis"]
+texture = ExtResource("15_7bqh7")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

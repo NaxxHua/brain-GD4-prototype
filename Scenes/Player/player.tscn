@@ -183,7 +183,7 @@ size = Vector2(20, 35)
 [sub_resource type="CircleShape2D" id="CircleShape2D_nup4a"]
 radius = 17.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player_group"]]
 script = ExtResource("1_i4g3n")
 bullet_node = ExtResource("2_diymx")
 

@@ -8,7 +8,8 @@ var interact: Callable = func():
 
 
 func _on_body_entered(body):
-	InteractablesManager.register_area(self)
+	if body.is_in_group("player_group"):
+		InteractablesManager.register_area(self)
 
 
 func _on_body_exited(body):
