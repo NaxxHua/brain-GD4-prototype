@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ftac1s8vldev"]
+
+[ext_resource type="Script" path="res://Scripts/InteractablesManager.gd" id="1_jxbxk"]
+[ext_resource type="Theme" uid="uid://cp1yt30lt5sbr" path="res://Theme/BrainInAVat.tres" id="2_cbxg6"]
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_jxbxk")
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme = ExtResource("2_cbxg6")
+text = "按[F]与其互动"
+horizontal_alignment = 1
+vertical_alignment = 1

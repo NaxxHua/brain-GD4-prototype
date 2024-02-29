@@ -42,3 +42,4 @@ func take_damage(damage_amount: int):
 	var popup_location = get_node("PopupLocation")
 	if popup_location:
 		popup_location.popup(damage_amount)
+

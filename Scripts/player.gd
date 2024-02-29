@@ -28,7 +28,7 @@ var intelligence = 1
 var stamina = 1
 
 var dps = ceil(1 * 1.05 ** ((strength-3)*(dexterity-3)*(intelligence-3)) * (1 + 0.1))
-@export var maxHealth = stamina * 10
+@export var maxHealth = stamina * 20
 @onready var currentHealth: int = maxHealth
 
 @export var bullet_cooldown: float = 0.2 # 子弹的冷却时间，单位为秒
