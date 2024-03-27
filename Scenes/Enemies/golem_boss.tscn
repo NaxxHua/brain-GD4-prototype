@@ -504,6 +504,6 @@ position = Vector2(0, -27)
 script = ExtResource("15_fdjwj")
 damage_node = ExtResource("16_maw6j")
 
-[connection signal="area_entered" from="PlayerDetection" to="." method="_on_hit_detection_area_entered"]
 [connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
+[connection signal="area_entered" from="PlayerDetection" to="." method="_on_hit_detection_area_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
