@@ -1,0 +1,29 @@
+join OldJohn 0
+OldJohn: 再来一杯尼格罗尼。
+OldJohn: 嗯，找我还有什么事？
+- 你怎么认出我的
+	OldJohn: 风衣。
+	OldJohn: 你这风衣都穿八百年了，扣子都掉了。
+	OldJohn: 家族的人谁不认得你的风衣？
+- 再说说加利亚诺家族
+	OldJohn: 加利亚诺家族，很古老。
+	OldJohn: 最初靠着烟草起家。
+	OldJohn: 然后……然后我也不记得了。
+	OldJohn: 总之我跟着三任首领干，几十年了。
+	OldJohn: ……对。
+- 老爹是？
+	OldJohn: 家族的前任首领。
+	OldJohn: 那个时候，家族事业壮大，
+	企业都得畏我们三分。
+- 乔安娜和查尔斯是什么关系？
+	OldJohn: 查尔斯，倒霉蛋，现任首领。
+	OldJohn: 乔安娜是他的妹妹。
+	OldJohn: 查尔斯病危以后，乔安娜现在在代管家族事务，嗯。
+- 这杯生命之源？
+	OldJohn: 是水。
+	leave --All--
+	join main_character 0
+	main_character: 那它……
+	leave --All--
+	join OldJohn 0
+	OldJohn: 它就是水。
