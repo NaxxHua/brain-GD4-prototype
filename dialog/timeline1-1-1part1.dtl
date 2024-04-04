@@ -1,4 +1,4 @@
-[background arg="res://dialog/lab.jpg" fade="0.0"]
+[background arg="res://Character/lab.jpg" fade="0.0"]
 join main_character 0
 main_character: …… #id:17
 main_character: 这是？ #id:18

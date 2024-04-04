@@ -24,12 +24,17 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"Bartender": "res://dialog/Bartender.dch",
-"DrT": "res://dialog/DrT.dch",
-"OldJohn": "res://dialog/OldJohn.dch",
+"Bartender": "res://Character/Bartender.dch",
+"Captain1": "res://Character/Captain1.dch",
+"Captain2": "res://Character/Captain2.dch",
+"DrT": "res://Character/DrT.dch",
+"Guard": "res://Character/Guard.dch",
+"Joanna": "res://Character/Joanna.dch",
+"OSullivan": "res://Character/OSullivan.dch",
+"OldJohn": "res://Character/OldJohn.dch",
 "dialog/DrT": "res://brain-GD4-prototype/dialog/DrT.dch",
 "dialog/main_character": "res://brain-GD4-prototype/dialog/main_character.dch",
-"main_character": "res://dialog/main_character.dch"
+"main_character": "res://Character/main_character.dch"
 }
 directories/dtl_directory={
 "0": "res://Sprites/UI/1-1-1part0.dtl",
@@ -54,13 +59,21 @@ directories/dtl_directory={
 "timeline1-1-1part4": "res://dialog/timeline1-1-1part4.dtl",
 "timeline1-1-1prosthesis": "res://dialog/timeline1-1-1prosthesis.dtl",
 "timeline1-1-2Meet-Old-John": "res://dialog/timeline1-1-2Meet-Old-John.dtl",
-"timeline1-1-2Old-John-again": "res://dialog/timeline1-1-2Old-John-again.dtl"
+"timeline1-1-2Old-John-again": "res://dialog/timeline1-1-2Old-John-again.dtl",
+"timeline1-1-3With-captains": "res://dialog/timeline1-1-3With-captains.dtl",
+"timeline1-1-4In-prayer-room": "res://dialog/timeline1-1-4In-prayer-room.dtl",
+"timeline1-2-1Before-boxing-gym": "res://dialog/timeline1-2-1Before-boxing-gym.dtl",
+"timeline1-2-2On-the-door-of-gym": "res://dialog/timeline1-2-2On-the-door-of-gym.dtl"
 }
 layout/style_list=[]
 layout/default_style="Default"
 variables={
 "Basic": {
 "Gold": 1
+},
+"Property": {
+"Cha": "5",
+"Dex": "5"
 },
 "bossDead": false,
 "canTalkCoffee": 0.0,
