@@ -1,0 +1,31 @@
+Captain1: 这风衣。
+Captain2: 该死，他来了。
+Captain1: 等一下，你要去哪？
+join main_character 0
+if {name} == "埃里希":
+	main_character: 埃里希，去见首领。
+	leave --All--
+	Captain2: 还知道自己是谁。
+	Captain1: 可把你等来了。
+	Captain1: 老大让我们好好招待你。
+else:
+	main_character: {name}，去见首领。
+	leave --All--
+	Captain1: 别装了，可把你等来了。
+	Captain1: 老大让我们好好招待你。
+join main_character 0
+main_character: 乔安娜？她让你们这么做的？
+leave --All--
+Captain2: 乔安娜？
+Captain2: 这事儿她可管不着。
+join main_character 0
+main_character: 那归谁管？
+leave --All--
+Captain1: 这不是你该关心的，关心关心自己吧！
+join main_character 0
+main_character: 我还是家族一员,
+main_character: “家族之内不可兵戈相向”，你们不清楚吗？
+Captain1: 啊哈哈哈哈。
+Captain2: 你是从哪里听说这种没头没脑的话的。
+Captain1: 现在都是老大说了算，别废话了。
+Captain2: 束手就擒吧！

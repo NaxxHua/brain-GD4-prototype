@@ -1,0 +1,36 @@
+[background arg="res://dialog/lab.jpg" fade="0.0"]
+join DrT 4
+DrT: 恭喜你活着回来了，怎么样，垃圾场很有趣吧。
+leave --All--
+join main_character 0
+main_character: 很有趣。
+leave --All--
+join DrT 4
+DrT: 想听听Dr. T.的评价吗？
+- 不想
+	DrT: 看来语言模块还是有些故障，Dr. T.认为你是想的。
+	leave --All--
+	join main_character 0
+	main_character: ……
+	leave --All--
+	join DrT 4
+- 想
+DrT: 和Dr. T.的计算一致，你的战斗能力可以完成基本的防卫行为……
+DrT: 但是离预期还差的很远。
+DrT: Dr. T.可以换一种大多数人更能接受的表达方式：
+DrT: “你具有很大的成长空间和无限的可能性！”
+DrT: 怎么样，是不是听起来好受了很多？
+leave --All--
+join main_character 0
+main_character: 确实，即便是金属躯壳的我也感觉汗流浃背了。
+leave --All--
+join DrT 4
+DrT: 不用担心，Dr. T.觉得你会慢慢熟悉怎么成长的。
+leave --All--
+join main_character 0
+main_character: 现在我该干什么？
+leave --All--
+join DrT 4
+DrT: 看来记忆模块存在一些问题，后续需要增加一个辅助性的记忆单元。
+DrT: Dr. T.之前和你说过，去酒馆看看吧。
+DrT: 或者到处逛逛，别把自己再搞死了就行。

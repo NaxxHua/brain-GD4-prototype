@@ -1,0 +1,30 @@
+join main_character 0
+main_character: (陌生的气氛。地下原来有这么热闹的地方。)
+leave --All--
+join Guard 0
+Guard: 比赛马上开始！今夜！不败拳王Ali——正式出山！挑战获胜者可以获得万元美金！一夜致富！不限身份不问来历，持续接受挑战！
+Guard: 别挤别急，都能入馆，观众200美元一位啊！观众老爷请进——
+Guard: 等等！大哥你还没付钱？
+leave --All--
+join main_character 0
+main_character: 是来见你们馆长的，请转告。
+leave --All--
+join Guard 0
+Guard: 馆长？馆长近期不见人。不管见谁进去都要掏钱。
+Guard: 钱呢？
+Guard: 没钱在这装什么老爷？忙着呢，滚一边儿去。
+leave --All--
+join main_character 0
+- 我非进不可。
+	leave --All--
+	join Guard 0
+	Guard: 非进不可是吧？我看你这条小命也是不想要咯！
+- 如果我说…… [if {Property.Cha} >= "5"]
+	# 这里想加判定，但是通过if只能实现判定成功，并不能实现：看到选项和要求-主动判定-判定成功/失败，这个流程
+	main_character: 如果我说，我是要作为挑战者加入呢？
+	leave --All--
+	join Guard 0
+	Guard: 早说啊您！新一位挑战者候场——！
+	leave --All--
+	join main_character 0
+	main_character: （这么容易……？）
