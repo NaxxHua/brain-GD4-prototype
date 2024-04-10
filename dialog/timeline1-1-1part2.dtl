@@ -1,4 +1,4 @@
-[background arg="res://Character/lab.jpg" fade="0.0"]
+[background arg="res://dialog/lab.jpg" fade="0.0"]
 Theme\: 特斯拉工作室 提供的收据\
 特斯拉工作室\
 128520 国王大道 圣乔治区 第五大区\
@@ -30,7 +30,7 @@ join DrT 4
 DrT: 不错不错。 #id:31
 DrT: 想起自己的名字了吗？ #id:32
 [text_input text="我的名字是……" var="name"]
-if {name} == "埃里希":
+if {name}.length() > 0 and {name}.length()  <=  3:
 	DrT: 不错，还记得自己叫啥。 #id:33
 elif {name}.length() > 3 and {name}.length()  <=  6:
 	DrT: 不错，是个好名字。 #id:34
