@@ -24,57 +24,24 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"Bartender": "res://Character/Bartender.dch",
-"Captain1": "res://Character/Captain1.dch",
-"Captain2": "res://Character/Captain2.dch",
-"DrT": "res://Character/DrT.dch",
-"Guard": "res://Character/Guard.dch",
-"Joanna": "res://Character/Joanna.dch",
-"OSullivan": "res://Character/OSullivan.dch",
-"OldJohn": "res://Character/OldJohn.dch",
-"dialog/DrT": "res://brain-GD4-prototype/dialog/DrT.dch",
-"dialog/main_character": "res://brain-GD4-prototype/dialog/main_character.dch",
-"main_character": "res://Character/main_character.dch"
+"DrT": "res://dialog/DrT.dch",
+"main_character": "res://dialog/main_character.dch"
 }
 directories/dtl_directory={
 "0": "res://Sprites/UI/1-1-1part0.dtl",
 "000": "res://addons/dialogic/Editor/Events/Fields/timeline1-1-1part4.dtl",
 "0000": "res://Sprites/UI/1-1-1part1.dtl",
 "00000": "res://addons/dialogic/Editor/Events/Fields/timeline1-1-1part3.dtl",
-"1-1-1part0": "res://brain-GD4-prototype/Sprites/UI/1-1-1part0.dtl",
-"1-1-1part1": "res://brain-GD4-prototype/Sprites/UI/1-1-1part1.dtl",
-"Fields/timeline1-1-1part3": "res://brain-GD4-prototype/addons/dialogic/Editor/Events/Fields/timeline1-1-1part3.dtl",
-"Fields/timeline1-1-1part4": "res://brain-GD4-prototype/addons/dialogic/Editor/Events/Fields/timeline1-1-1part4.dtl",
-"dialog/timeline1-1-1coffeeMachine": "res://brain-GD4-prototype/dialog/timeline1-1-1coffeeMachine.dtl",
-"dialog/timeline1-1-1part1": "res://brain-GD4-prototype/dialog/timeline1-1-1part1.dtl",
-"dialog/timeline1-1-1part2": "res://brain-GD4-prototype/dialog/timeline1-1-1part2.dtl",
-"dialog/timeline1-1-1part3": "res://brain-GD4-prototype/dialog/timeline1-1-1part3.dtl",
-"dialog/timeline1-1-1part4": "res://brain-GD4-prototype/dialog/timeline1-1-1part4.dtl",
-"dialog/timeline1-1-1prosthesis": "res://brain-GD4-prototype/dialog/timeline1-1-1prosthesis.dtl",
-"timeline1-1-1-2Back-to-DrT-lab": "res://dialog/timeline1-1-1-2Back-to-DrT-lab.dtl",
 "timeline1-1-1coffeeMachine": "res://dialog/timeline1-1-1coffeeMachine.dtl",
 "timeline1-1-1part1": "res://dialog/timeline1-1-1part1.dtl",
 "timeline1-1-1part2": "res://dialog/timeline1-1-1part2.dtl",
 "timeline1-1-1part3": "res://dialog/timeline1-1-1part3.dtl",
 "timeline1-1-1part4": "res://dialog/timeline1-1-1part4.dtl",
-"timeline1-1-1prosthesis": "res://dialog/timeline1-1-1prosthesis.dtl",
-"timeline1-1-2Meet-Old-John": "res://dialog/timeline1-1-2Meet-Old-John.dtl",
-"timeline1-1-2Old-John-again": "res://dialog/timeline1-1-2Old-John-again.dtl",
-"timeline1-1-3With-captains": "res://dialog/timeline1-1-3With-captains.dtl",
-"timeline1-1-4In-prayer-room": "res://dialog/timeline1-1-4In-prayer-room.dtl",
-"timeline1-2-1Before-boxing-gym": "res://dialog/timeline1-2-1Before-boxing-gym.dtl",
-"timeline1-2-2On-the-door-of-gym": "res://dialog/timeline1-2-2On-the-door-of-gym.dtl"
+"timeline1-1-1prosthesis": "res://dialog/timeline1-1-1prosthesis.dtl"
 }
 layout/style_list=[]
 layout/default_style="Default"
 variables={
-"Basic": {
-"Gold": 1
-},
-"Property": {
-"Cha": "5",
-"Dex": "5"
-},
 "bossDead": false,
 "canTalkCoffee": 0.0,
 "canTurnOffCoffee": 0.0,
