@@ -189,7 +189,6 @@ func shoot():
 		
 		var damage_variance = randf_range(-5, 5)
 		bullet.damage = max(1, dps + int(damage_variance))
-		
 		get_tree().current_scene.call_deferred("add_child", bullet)
 		last_shot_time = current_time # 更新上次射击时间
 
