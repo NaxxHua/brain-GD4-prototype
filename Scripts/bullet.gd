@@ -2,7 +2,7 @@ extends Area2D  # 继承自Area2D，用于检测2D碰撞
 
 # 使用onready关键字获取节点，确保它们在节点树中已准备好
 @onready var animated_sprite = $AnimatedSprite2D  # 子弹的动画
-@onready var player = get_parent().find_node("Player", true, false)  # 获取父节点中的Player节点
+@onready var player = get_parent().find_child("Player") # 获取父节点中的Player节点
 
 # 初始化加速度和速度向量
 var acceleration: Vector2 = Vector2.ZERO  # 子弹的加速度

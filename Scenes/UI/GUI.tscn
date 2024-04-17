@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1p6nlktk1u5d"]
+[gd_scene load_steps=12 format=3 uid="uid://c1p6nlktk1u5d"]
 
 [ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_pbv3b"]
 [ext_resource type="Texture2D" uid="uid://faxxk1cml68j" path="res://dialog/ExperimentalA.png" id="2_u35se"]
 [ext_resource type="Texture2D" uid="uid://bwvkqwb0couwf" path="res://Sprites/Interactables/coin.png" id="3_yt17i"]
 [ext_resource type="PackedScene" uid="uid://c208vygvi28gp" path="res://Scenes/UI/health_bar.tscn" id="4_gruoa"]
+[ext_resource type="Texture2D" uid="uid://c5ckrqq7o6rdh" path="res://Sprites/UI/healthbarUnder.png" id="6_3qkt8"]
+[ext_resource type="Texture2D" uid="uid://bmfh6y6u5ged6" path="res://Sprites/UI/staminaBarProgress.png" id="7_mabpa"]
 [ext_resource type="PackedScene" uid="uid://dy4wrews2paxv" path="res://Scenes/UI/character_sheet.tscn" id="7_ufg6e"]
+[ext_resource type="Script" path="res://Scripts/EnergyBar.gd" id="8_lchvk"]
 
 [sub_resource type="Animation" id="Animation_m6sfx"]
 length = 0.001
@@ -81,3 +84,17 @@ vertical_alignment = 1
 
 [node name="CharacterSheet" parent="." instance=ExtResource("7_ufg6e")]
 visible = false
+
+[node name="EnergyBar" type="TextureProgressBar" parent="."]
+offset_left = 40.0
+offset_top = 29.0
+offset_right = 342.0
+offset_bottom = 35.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("6_3qkt8")
+texture_progress = ExtResource("7_mabpa")
+script = ExtResource("8_lchvk")

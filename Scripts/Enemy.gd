@@ -37,12 +37,14 @@ func Move():
 
 # 检测地面和墙壁，来改变移动方向
 func floor_detect():
-	if !$RayCastY.is_colliding() and is_on_floor():
-		moving_left = !moving_left  # 改变方向
-		scale.x = -scale.x  # 水平翻转精灵
-	elif !$RayCastX.is_colliding() and is_on_wall():
-		moving_left = !moving_left  # 改变方向
-		scale.x = -scale.x  # 水平翻转精灵
+	if !$RayCastY.is_colliding() && is_on_floor():
+		moving_left = !moving_left
+		scale.x = -scale.x
+		$Node2D.scale.x = - $Node2D.scale.x
+	elif !$RayCastX.is_colliding() && is_on_wall():
+		moving_left = !moving_left
+		scale.x = -scale.x
+		$Node2D.scale.x = - $Node2D.scale.x
 
 # 显示受伤闪光效果
 func flash():
