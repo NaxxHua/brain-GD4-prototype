@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bysrr8r6cv3i6"]
+[gd_scene load_steps=20 format=3 uid="uid://bysrr8r6cv3i6"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_i4g3n"]
 [ext_resource type="PackedScene" uid="uid://bgf2sk51ydhd3" path="res://Scenes/Player/player_bullet.tscn" id="2_diymx"]
@@ -166,6 +166,22 @@ tracks/0/keys = {
 "values": [10, 11, 12, 13, 14, 15, 16, 17]
 }
 
+[sub_resource type="Animation" id="Animation_pwgev"]
+resource_name = "Roll"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [37, 38, 39, 40, 41, 42, 43]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j8ndd"]
 _data = {
 "Dead": SubResource("Animation_oo0ys"),
@@ -173,6 +189,7 @@ _data = {
 "Idle": SubResource("Animation_pb2du"),
 "Jump": SubResource("Animation_d7lwi"),
 "RESET": SubResource("Animation_1fks5"),
+"Roll": SubResource("Animation_pwgev"),
 "Sword": SubResource("Animation_rnj0f"),
 "Walk": SubResource("Animation_hewlp")
 }
@@ -192,7 +209,7 @@ material = SubResource("ShaderMaterial_qtbc5")
 position = Vector2(0, -15)
 texture = ExtResource("4_da5mr")
 offset = Vector2(0, 12)
-hframes = 37
+hframes = 44
 frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

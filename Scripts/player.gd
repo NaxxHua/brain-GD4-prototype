@@ -10,7 +10,8 @@ enum PlayerStates {
 	MOVE,
 	HURT,
 	SWORD,
-	DEAD
+	DEAD,
+	ROLL
 }
 var currentState = PlayerStates.MOVE
 
@@ -18,6 +19,10 @@ var speed = 200.0
 var gravity = 20
 var jump = 400
 var pressed = 2
+
+var roll_speed = 400.0
+var roll_duration = 0.5
+var roll_timer = 0.0
 
 # 属性系统
 var level = 1
@@ -62,10 +67,26 @@ func _physics_process(delta):
 			Sword()
 		PlayerStates.DEAD:
 			Dead()
+		PlayerStates.ROLL:
+			Roll(delta)
 	
 	velocity.y += 20
 	move_and_slide()
 
+func Roll(delta):
+	if roll_timer > 0:
+		roll_timer -= delta
+		if $Sprite2D.flip_h:
+			velocity.x = -roll_speed
+		else:
+			velocity.x = roll_speed
+		$anim.play("Roll") # 确保有一个名为"Roll"的动画
+	else:
+		OnStateFinished() # 翻滚结束后回到MOVE状态
+
+	if is_on_floor():
+		velocity.y += gravity * delta # 确保角色贴地
+		
 func Move(delta):
 	var movement = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	if movement != 0:
@@ -175,3 +196,6 @@ func shoot():
 func _input(event):
 	if event.is_action("Shoot"):
 		shoot()
+	if event.is_action_pressed("Roll") and currentState == PlayerStates.MOVE:
+		currentState = PlayerStates.ROLL
+		roll_timer = roll_duration # 设置翻滚时间
