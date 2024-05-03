@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bysrr8r6cv3i6"]
+[gd_scene load_steps=21 format=3 uid="uid://bysrr8r6cv3i6"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_i4g3n"]
 [ext_resource type="PackedScene" uid="uid://bgf2sk51ydhd3" path="res://Scenes/Player/player_bullet.tscn" id="2_diymx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bc5a4nmscimrg" path="res://Sprites/ModelA.png" id="4_da5mr"]
 [ext_resource type="Script" path="res://Scripts/PopupLocation.gd" id="4_tlfxt"]
 [ext_resource type="PackedScene" uid="uid://dwvlf7doo7xal" path="res://Scenes/UI/floating_numbers_purple.tscn" id="5_h2hkn"]
+[ext_resource type="PackedScene" uid="uid://dns4cf165l470" path="res://Scenes/UI/energy_bar.tscn" id="7_qnbr3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qtbc5"]
 shader = ExtResource("2_w0awl")
@@ -107,6 +108,22 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_pwgev"]
+resource_name = "Roll"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [37, 38, 39, 40, 41, 42, 43]
+}
+
 [sub_resource type="Animation" id="Animation_rnj0f"]
 resource_name = "Sword"
 length = 0.5
@@ -164,22 +181,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [10, 11, 12, 13, 14, 15, 16, 17]
-}
-
-[sub_resource type="Animation" id="Animation_pwgev"]
-resource_name = "Roll"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [37, 38, 39, 40, 41, 42, 43]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j8ndd"]
@@ -240,5 +241,11 @@ debug_color = Color(0.921569, 0.180392, 0.529412, 0.419608)
 position = Vector2(0, -23)
 script = ExtResource("4_tlfxt")
 damage_node = ExtResource("5_h2hkn")
+
+[node name="EnergyBar" parent="." instance=ExtResource("7_qnbr3")]
+offset_left = -12.0
+offset_top = -31.0
+offset_right = 13.0
+offset_bottom = -23.0
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

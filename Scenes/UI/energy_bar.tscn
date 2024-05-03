@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dns4cf165l470"]
+
+[ext_resource type="Texture2D" uid="uid://c5ckrqq7o6rdh" path="res://Sprites/UI/healthbarUnder.png" id="1_mpf41"]
+[ext_resource type="Texture2D" uid="uid://bmfh6y6u5ged6" path="res://Sprites/UI/staminaBarProgress.png" id="2_du2bg"]
+[ext_resource type="Script" path="res://Scripts/EnergyBar.gd" id="3_37n1m"]
+
+[node name="EnergyBar" type="TextureProgressBar"]
+offset_left = 40.0
+offset_top = 29.0
+offset_right = 342.0
+offset_bottom = 35.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("1_mpf41")
+texture_progress = ExtResource("2_du2bg")
+script = ExtResource("3_37n1m")
