@@ -401,25 +401,27 @@ autoplay = "idle"
 [node name="ProgressBar" type="ProgressBar" parent="UI"]
 visible = false
 custom_minimum_size = Vector2(400, 0)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = -27.0
-offset_right = 2.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 52.0
+offset_bottom = 79.0
 grow_horizontal = 2
-grow_vertical = 0
 max_value = 1000.0
 value = 1000.0
 
 [node name="Label" type="Label" parent="UI/ProgressBar"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -31.0
-offset_right = 217.0
-offset_bottom = -1.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -65.5
+offset_right = 144.0
+offset_bottom = -29.5
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("3_k56id")
 theme_override_font_sizes/font_size = 24
 text = "会发出射线的蓝色奇怪石头"
@@ -504,6 +506,6 @@ position = Vector2(0, -27)
 script = ExtResource("15_fdjwj")
 damage_node = ExtResource("16_maw6j")
 
-[connection signal="area_entered" from="PlayerDetection" to="." method="_on_hit_detection_area_entered"]
 [connection signal="area_entered" from="PlayerDetection" to="." method="_on_player_detection_area_entered"]
+[connection signal="area_entered" from="PlayerDetection" to="." method="_on_hit_detection_area_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]

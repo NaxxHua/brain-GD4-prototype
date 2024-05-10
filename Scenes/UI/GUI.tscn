@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1p6nlktk1u5d"]
+[gd_scene load_steps=11 format=3 uid="uid://c1p6nlktk1u5d"]
 
 [ext_resource type="Script" path="res://Scripts/GUI.gd" id="1_pbv3b"]
 [ext_resource type="Texture2D" uid="uid://faxxk1cml68j" path="res://dialog/ExperimentalA.png" id="2_u35se"]
 [ext_resource type="Texture2D" uid="uid://bwvkqwb0couwf" path="res://Sprites/Interactables/coin.png" id="3_yt17i"]
 [ext_resource type="PackedScene" uid="uid://c208vygvi28gp" path="res://Scenes/UI/health_bar.tscn" id="4_gruoa"]
+[ext_resource type="Script" path="res://Scripts/SkillBar.gd" id="6_u8wvb"]
+[ext_resource type="PackedScene" uid="uid://d1j05nio7uknb" path="res://Scenes/UI/spell_button.tscn" id="7_j2p5m"]
 [ext_resource type="PackedScene" uid="uid://dy4wrews2paxv" path="res://Scenes/UI/character_sheet.tscn" id="7_ufg6e"]
 
 [sub_resource type="Animation" id="Animation_m6sfx"]
@@ -85,3 +87,25 @@ offset_bottom = 318.0
 
 [node name="CharacterSheet" parent="." instance=ExtResource("7_ufg6e")]
 visible = false
+
+[node name="SkillBar" type="HBoxContainer" parent="."]
+offset_left = 47.0
+offset_top = 254.5
+offset_right = 263.0
+offset_bottom = 294.5
+script = ExtResource("6_u8wvb")
+
+[node name="SpellButton" parent="SkillBar" instance=ExtResource("7_j2p5m")]
+layout_mode = 2
+
+[node name="SpellButton2" parent="SkillBar" instance=ExtResource("7_j2p5m")]
+layout_mode = 2
+
+[node name="SpellButton3" parent="SkillBar" instance=ExtResource("7_j2p5m")]
+layout_mode = 2
+
+[node name="SpellButton4" parent="SkillBar" instance=ExtResource("7_j2p5m")]
+layout_mode = 2
+
+[node name="SpellButton5" parent="SkillBar" instance=ExtResource("7_j2p5m")]
+layout_mode = 2

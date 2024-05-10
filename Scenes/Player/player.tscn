@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://bysrr8r6cv3i6"]
+[gd_scene load_steps=22 format=3 uid="uid://bysrr8r6cv3i6"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_i4g3n"]
 [ext_resource type="PackedScene" uid="uid://bgf2sk51ydhd3" path="res://Scenes/Player/player_bullet.tscn" id="2_diymx"]
 [ext_resource type="Shader" path="res://Shaders/hurt.gdshader" id="2_w0awl"]
+[ext_resource type="PackedScene" uid="uid://bvj8r7ea1xe51" path="res://Scenes/Projectile/projectile.tscn" id="3_nrkvx"]
 [ext_resource type="Texture2D" uid="uid://bc5a4nmscimrg" path="res://Sprites/ModelA.png" id="4_da5mr"]
 [ext_resource type="Script" path="res://Scripts/PopupLocation.gd" id="4_tlfxt"]
 [ext_resource type="PackedScene" uid="uid://dwvlf7doo7xal" path="res://Scenes/UI/floating_numbers_purple.tscn" id="5_h2hkn"]
@@ -204,6 +205,7 @@ radius = 16.0
 [node name="Player" type="CharacterBody2D" groups=["player_group"]]
 script = ExtResource("1_i4g3n")
 bullet_node = ExtResource("2_diymx")
+projectile_node = ExtResource("3_nrkvx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_qtbc5")

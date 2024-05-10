@@ -163,11 +163,11 @@ limit_top = 0
 position_smoothing_speed = 10.0
 script = ExtResource("1_2q1ln")
 
+[node name="GUI" parent="." instance=ExtResource("15_hkgrc")]
+
 [node name="Crate" parent="." instance=ExtResource("3_5l670")]
 z_index = 1
 position = Vector2(315, 160)
-
-[node name="GUI" parent="." instance=ExtResource("15_hkgrc")]
 
 [node name="Coin" parent="." instance=ExtResource("17_na0dn")]
 position = Vector2(315, 127)
