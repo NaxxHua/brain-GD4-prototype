@@ -7,7 +7,7 @@ extends TextureButton
 
 func _input(event):
 	if disabled:
-		return
+		return 
 	var player = get_player_reference()
 	if event is InputEventMouseButton:
 		if event.pressed:

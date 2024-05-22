@@ -8,6 +8,51 @@ signal energyChanged  # 能量值变化信号
 @export var bullet_node: PackedScene  # 子弹场景
 
 @export var projectile_node : PackedScene
+@export var projectile_curved_node: PackedScene
+
+var current_skill_curved: SkillCurved = null
+var hook = null
+
+func _input(event):
+	#if event.is_action("Shoot"):
+		#shoot()
+	if event.is_action_pressed("Roll") and currentState == PlayerStates.MOVE and energy >= 20:
+		if consume_energy(20):
+			currentState = PlayerStates.ROLL
+			roll_timer = roll_duration  # 设置翻滚时间
+			
+	if event.is_action_pressed("shoot"):
+		shoot()
+	
+
+func shoot():
+	if current_skill_curved != null:
+		for i in range(current_skill_curved.count):
+			var distance = current_skill_curved.distance[i]
+			var angle = current_skill_curved.angle[i]
+			var can_return = current_skill_curved.can_return[i]
+			var type = current_skill_curved.type
+			var texture = current_skill_curved.texture
+				
+			print("Shooting: ", type, " distance: ", distance, " angle: ", angle, " can_return: ", can_return)
+			instance_projectiles(distance, angle, can_return,type,texture)
+
+func instance_projectiles(distance, angle, can_return,type,texture):
+	var projectile = projectile_curved_node.instantiate()
+	projectile.position = position
+ 
+	projectile.set_deviation(distance,angle)
+	projectile.set_can_return(can_return)
+	projectile.set_destination(get_global_mouse_position())
+	projectile.set_type(type)
+	projectile.set_texture(texture)
+	projectile.set_ignore_body(self)
+ 
+	if type == "Hook":
+		hook = projectile
+		
+	get_tree().current_scene.add_child(projectile)
+	print("Projectile instantiated: ", projectile, " type: ", type)
 
 func single_shot(animation_name = "Fire"):
 	var projectile = projectile_node.instantiate()
@@ -81,6 +126,8 @@ var last_shot_time: float = -bullet_cooldown  # 上次射击时间，默认为�
 func _ready():
 	randomize()  # 初始化随机数生成器
 	$Sword/CollisionShape2D.disabled = true  # 禁用武器的碰撞形状
+	current_skill_curved = Hook.new(self, null)
+	print("Initialized current_skill_curved: ", current_skill_curved)
 
 func LevelUp():
 	level += 1
@@ -111,6 +158,13 @@ func _physics_process(delta):
 	
 	velocity.y += 20  # 竖直方向速度增加
 	move_and_slide()  # 移动并滑动
+	
+	#if hook != null:
+		#%Line2D.set_point_position(0,global_position)
+		#%Line2D.set_point_position(1,hook.global_position)
+	#elif hook == null:
+		#%Line2D.set_point_position(0,Vector2.ZERO)
+		#%Line2D.set_point_position(1,Vector2.ZERO)
 
 # 自动回复能量
 func regenerate_energy(delta: float):
@@ -232,27 +286,21 @@ func take_damage(damage_amount: int):
 	if popup_location:
 		popup_location.popup(damage_amount)
 
-# 射击
-func shoot():
-	var current_time = Time.get_ticks_msec() / 1000.0  # 获取当前时间（秒）
-	if current_time - last_shot_time >= bullet_cooldown:
-		var bullet = bullet_node.instantiate()
-		
-		bullet.position = global_position
-		bullet.direction = Vector2.LEFT if $Sprite2D.flip_h else Vector2.RIGHT
-		
-		var damage_variance = randf_range(-5, 5)
-		bullet.damage = max(1, dps + int(damage_variance))
-		get_tree().current_scene.call_deferred("add_child", bullet)
-		last_shot_time = current_time  # 更新上次射击时间
+## 射击
+#func shoot():
+	#var current_time = Time.get_ticks_msec() / 1000.0  # 获取当前时间（秒）
+	#if current_time - last_shot_time >= bullet_cooldown:
+		#var bullet = bullet_node.instantiate()
+		#
+		#bullet.position = global_position
+		#bullet.direction = Vector2.LEFT if $Sprite2D.flip_h else Vector2.RIGHT
+		#
+		#var damage_variance = randf_range(-5, 5)
+		#bullet.damage = max(1, dps + int(damage_variance))
+		#get_tree().current_scene.call_deferred("add_child", bullet)
+		#last_shot_time = current_time  # 更新上次射击时间
 
-func _input(event):
-	if event.is_action("Shoot"):
-		shoot()
-	if event.is_action_pressed("Roll") and currentState == PlayerStates.MOVE and energy >= 20:
-		if consume_energy(20):
-			currentState = PlayerStates.ROLL
-			roll_timer = roll_duration  # 设置翻滚时间
+
 
 # 消耗能量
 func consume_energy(amount: int) -> bool:

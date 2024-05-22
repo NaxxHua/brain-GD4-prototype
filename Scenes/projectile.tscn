@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0jl13bu1vsfe"]
+
+[ext_resource type="Script" path="res://Scripts/projectileCurve.gd" id="1_jv218"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_aoano"]
+size = Vector2(20, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1s73"]
+
+[node name="ProjectileCurve" type="Area2D"]
+position = Vector2(51, 32)
+script = ExtResource("1_jv218")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_aoano")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t1s73")

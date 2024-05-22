@@ -145,7 +145,7 @@ radius = 57.0351
 
 [node name="MainScene" type="Node2D"]
 
-[node name="Ground" type="TileMap" parent="."]
+[node name="Ground" type="TileMap" parent="." groups=["Terrain"]]
 z_index = 1
 tile_set = SubResource("TileSet_p74df")
 format = 2
