@@ -252,4 +252,11 @@ offset_top = -31.0
 offset_right = 13.0
 offset_bottom = -23.0
 
+[node name="Line2D" type="Line2D" parent="."]
+unique_name_in_owner = true
+z_index = 4
+points = PackedVector2Array(0, 0, 0, 0)
+width = 2.0
+default_color = Color(0.142156, 0.156092, 0.0912603, 1)
+
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

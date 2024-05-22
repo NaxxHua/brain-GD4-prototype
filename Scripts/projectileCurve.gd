@@ -72,7 +72,7 @@ func _physics_process(delta):
 		if t < 1.0:
 			t += speed * delta
  
-			if can_return and t >= 0.5:
+			if can_return and t >= 1.0:
 				returning = true
 		elif t>= 1.0:
 			queue_free()

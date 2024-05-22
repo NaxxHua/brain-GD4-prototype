@@ -50,6 +50,8 @@ func instance_projectiles(distance, angle, can_return,type,texture):
  
 	if type == "Hook":
 		hook = projectile
+		$Line2D.set_point_position(0, to_local(global_position))
+		print("Line2D start position set to: ", global_position)
 		
 	get_tree().current_scene.add_child(projectile)
 	print("Projectile instantiated: ", projectile, " type: ", type)
@@ -128,6 +130,10 @@ func _ready():
 	$Sword/CollisionShape2D.disabled = true  # 禁用武器的碰撞形状
 	current_skill_curved = Hook.new(self, null)
 	print("Initialized current_skill_curved: ", current_skill_curved)
+	
+	$Line2D.clear_points()
+	$Line2D.add_point(Vector2.ZERO)
+	$Line2D.add_point(Vector2.ZERO)
 
 func LevelUp():
 	level += 1
@@ -159,12 +165,13 @@ func _physics_process(delta):
 	velocity.y += 20  # 竖直方向速度增加
 	move_and_slide()  # 移动并滑动
 	
-	#if hook != null:
-		#%Line2D.set_point_position(0,global_position)
-		#%Line2D.set_point_position(1,hook.global_position)
-	#elif hook == null:
-		#%Line2D.set_point_position(0,Vector2.ZERO)
-		#%Line2D.set_point_position(1,Vector2.ZERO)
+	if hook != null:
+		$Line2D.set_point_position(1, $Line2D.to_local(hook.global_position))
+		print("Line2D end position set to: ", hook.global_position)
+	elif hook == null:
+		%Line2D.set_point_position(0,Vector2.ZERO)
+		%Line2D.set_point_position(1,Vector2.ZERO)
+		print("Line2D reset to zero")
 
 # 自动回复能量
 func regenerate_energy(delta: float):
